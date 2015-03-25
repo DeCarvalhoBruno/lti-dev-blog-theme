@@ -1,0 +1,62 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.entry-header h1 {
+  font-family: $font__article_header;
+  letter-spacing: .1em;
+  padding-left: 10px;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.posted-on, .posted-on a {
+  color: $color__subheaders;
+}
+
+.posted-on {
+  padding-left: 15px;
+
+}
+
+.entry-content {
+  p {
+    padding-left: 15px;
+  }
+}
+
+.entry-footer {
+  min-height: 50px;
+  margin: 0;
+}

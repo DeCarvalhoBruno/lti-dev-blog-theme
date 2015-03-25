@@ -1,0 +1,31 @@
+.site-content {
+  min-height: 500px;
+}
+
+.content-area {
+  float: left;
+  margin: 25px (-$size__site-sidebar) 0 0;
+  width: $size__site-main;
+  border: 1px solid $color__headers;
+}
+
+.site-main {
+  margin: 0 $size__site-sidebar 0 0;
+  border-left: 1px solid $color__headers;
+  border-right: 1px solid $color__headers;
+  padding-top: 25px;
+}
+
+.site-content .widget-area {
+  float: right;
+  overflow: hidden;
+  width: $size__site-sidebar;
+  position: relative;
+  top: 25px;
+}
+
+.site-footer {
+  clear: both;
+  width: $size__site-main;
+}
+

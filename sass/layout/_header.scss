@@ -1,0 +1,83 @@
+#masthead {
+  @media (min-width: $screen-xs) {
+    margin: 0;
+    text-align: center;
+    display: block;
+  }
+
+  @media (min-width: $screen-lg) {
+    margin: 0 0 10px;
+  }
+}
+
+.site-branding h1 {
+  position: absolute;
+  text-indent: -9999px;
+}
+
+.site-branding h2 {
+  @media (min-width: $screen-xs) {
+    font-family: $font__header;
+    font-style: italic;
+    font-size: 1.5em;
+    font-weight: 100;
+    margin: 10px 0;
+  }
+
+  @media (min-width: $screen-sm) {
+    margin: 0;
+    font-size: 1.5em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 20px;
+  }
+
+  @media (min-width: $screen-md) {
+    font-size: 1.9em;
+  }
+}
+
+.site-branding {
+  position: relative;
+  min-height: 160px;
+  margin-bottom: 15px;
+}
+
+header img {
+  @media (min-width: $screen-xs) {
+    position: relative;
+    display: block;
+    margin: 15px auto;
+  }
+
+  @media (min-width: $screen-sm) {
+    position: absolute;
+  }
+}
+
+#logo {
+  @media (min-width: $screen-xs) {
+    height: 143px;
+    width: 146px;
+  }
+
+  @media (min-width: $screen-lg) {
+    top: 0;
+    left: -25px;
+  }
+}
+
+#logo-text {
+  @media (min-width: $screen-xs) {
+    height: 84px;
+    width: 349px;
+  }
+
+  @media (min-width: $screen-sm) {
+    margin: 0;
+    top: 50px;
+    left: 155px;
+  }
+
+}

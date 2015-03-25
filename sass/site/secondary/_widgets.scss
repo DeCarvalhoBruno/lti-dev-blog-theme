@@ -1,0 +1,41 @@
+.widget {
+	margin: 0 0 1.5em;
+
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+
+}
+
+#secondary .widget{
+  margin: 15px 15px 0;
+
+  h1 {
+    font-family: $font__article_header;
+    font-size: 1.2em;
+    padding: 10px;
+    font-weight: 100;
+    margin: 0;
+    background-color: $color__headers;
+    letter-spacing: .05em;
+  }
+
+  ul {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 15px;
+    li {
+      margin: 10px 0;
+    }
+    a{
+      color: $color__subheaders;
+    }
+  }
+}
+
+/* Search widget. */
+.widget_search .search-submit {
+	display: none;
+}

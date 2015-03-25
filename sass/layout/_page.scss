@@ -1,0 +1,13 @@
+#page {
+  @media (min-width: $screen-xs) {
+    width: 100%;
+    padding: 0;
+  }
+
+  @media (min-width: $screen-lg) {
+    width: $size__site-page;
+    position: relative;
+    margin: 0 auto;
+    padding-left: 25px;
+  }
+}

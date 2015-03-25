@@ -1,0 +1,37 @@
+#colophon .widget{
+  margin: 15px 15px 0;
+
+  h1 {
+    font-family: $font__article_header;
+    font-size: 1.2em;
+    padding: 10px;
+    font-weight: 100;
+    margin: 0;
+    letter-spacing: .05em;
+  }
+
+  ul {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    li {
+      margin-top: 10px;
+    }
+  }
+}
+
+footer {
+  min-height: 200px;
+  margin-top: 50px;
+  text-align: left;
+}
+.site-info {
+  position: relative;
+  width: 25%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.site-info a {
+  text-align: center;
+  font-size: .8em;
+}
