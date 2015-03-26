@@ -11,6 +11,7 @@
   .str {
     color: #006a00;
   }
+
   /* string content */
   .kwd {
     color: #0000bc;
@@ -27,6 +28,7 @@
   .lit {
     color: #066;
   }
+
   /* a literal value */
   /* punctuation, lisp open bracket, lisp close bracket */
   .pun, .opn, .clo {

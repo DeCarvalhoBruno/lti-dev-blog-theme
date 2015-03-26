@@ -163,6 +163,71 @@ function lti_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'lti_scripts' );
 
+function lti_body_extra_attributes(){
+    if (is_singular('post')) {
+        return 'data-spy="scroll" data-target="#navbar-toc"';
+    }
+    return '';
+}
+add_action( 'after_setup_theme', 'lti_body_extra_attributes' );
+
+if ( ! function_exists( 'get_sidebar_with_scrollspy' ) ) :
+
+function get_sidebar_with_scrollspy(){
+
+    $content = get_the_content();
+
+    $s = new DOMDocument();
+    @$s->loadHTML($content);
+    $xpath = new DOMXPath($s);
+    $tags = $xpath->query('//*[@class="toc"]');
+    $html = '';
+    $htmlLevel = 0;
+    $m = [];
+    if ($tags->length > 0) {
+        $html.='<div id="navbar-toc" data-spy="affix" data-offset-top="250" data-offset-bottom="100">';
+        foreach ($tags as $tag) {
+            preg_match("#(?<=h)[1-6]#", $tag->tagName, $m);
+            if (isset($m[0])) {
+                $level = $m[0];
+                if ($level == $htmlLevel) {
+                    if ($htmlLevel > 0) {
+                        $html .= "</li>\n";
+                    }
+                } elseif ($level > $htmlLevel) {
+                    $html .= '<ul class="nav">';
+                } elseif ($level < $htmlLevel) {
+                    $html .= str_repeat("</li></ul>\n", $htmlLevel - $level) . "</li>";
+                }
+                $htmlLevel = $level;
+                $html .= '<li><a href="#' . $tag->attributes->getNamedItem('id')->value . '">' . trim($tag->nodeValue) . '</a>';
+            }
+        }
+        $html.="</div>\n";
+    }
+    echo $html;
+//echo '
+//    <div id="navbar-toc" data-spy="affix" data-offset-top="250" data-offset-bottom="100">
+//        <ul class="nav nav-stacked">
+//            <li><a href="#scrollspy1">1</a></li>
+//            <li><a href="#scrollspy2">2</a></li>
+//            <li><a href="#scrollspy3">3</a></li>
+//            <li><a href="#scrollspy4">4</a></li>
+//            <li>
+//                <a href="#scrollspy5">5</a>
+//                <ul class="nav">
+//                <li><a href="#scrollspy5-1">5.1</a></li>
+//                <li><a href="#scrollspy5-2">5.2</a></li>
+//                <li><a href="#scrollspy5-3">5.3</a></li>
+//                </ul>
+//            </li>
+//            <li><a href="#scrollspy6">6</a></li>
+//        </ul>
+//    </div>
+//';
+}
+endif;
+//add_filter( 'parse_query', 'get_sidebar_with_scrollspy' );
 /**
  * Implement the Custom Header feature.
  */
