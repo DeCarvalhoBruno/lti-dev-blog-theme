@@ -16,12 +16,6 @@
 	display: inline;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
@@ -45,27 +39,7 @@
   color: $color__subheaders;
 }
 
-.posted-on {
-  padding-left: 15px;
-
-}
-
-.entry-content {
-  p {
-    padding-left: 15px;
-  }
-}
-
 .entry-footer {
   min-height: 50px;
   margin: 0;
-}
-
-#navbar-toc {
-  width: 25%;
-}
-
-.affix {
-  position: fixed;
-  top: 20px;
 }

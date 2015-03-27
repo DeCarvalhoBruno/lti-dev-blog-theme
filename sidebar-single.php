@@ -1,13 +1,9 @@
 <?php
 /**
- * The sidebar containing the main widget area.
+ * The sidebar appearing on single posts, showing the table of contents.
  *
- * @package lti
  */
-
 ?>
-
-<div id="secondary" class="widget-area" role="complementary">
+<div id="secondary" class="table-contents" role="complementary">
     <?php get_sidebar_with_scrollspy(); ?>
-
 </div><!-- #secondary -->

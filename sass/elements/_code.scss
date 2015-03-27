@@ -2,7 +2,7 @@
 
 /* SPAN elements with the classes below are added by prettyprint. */
 .pln {
-  color: #513016;
+  color: #29180b;
 }
 
 /* plain text */
@@ -54,6 +54,13 @@
     color: #950000;
   }
   /* a function name */
+}
+
+pre.lang-bsh {
+  background-color: black;
+  span {
+  color: white;
+  }
 }
 
 /* Use higher contrast and text-weight for printable form. */

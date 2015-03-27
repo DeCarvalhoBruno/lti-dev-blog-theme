@@ -1,8 +1,65 @@
 #masthead {
   @media (min-width: $screen-xs) {
+    position: relative;
     margin: 0;
     text-align: center;
     display: block;
+
+    .social-media-headers{
+      position:absolute;
+      top: 20px;
+      right: 20px;
+      height: 81px;
+      width: 235px;
+      overflow: hidden;
+    }
+
+    .social-header {
+      position:absolute;
+      background-image: url('images/social_aligned.png');
+      background-repeat: no-repeat;
+      //background-size: cover;
+      height: 469px;
+      width: 75px;
+      top:0;
+      left:0;
+    }
+
+    .h-fb{
+      clip: rect(0px, 75px, 75px, 0px);
+      //clip: rect(0px, 150px, 75px, 75px);
+      top: 0;
+      left:0;
+    }
+
+    .h-fb:hover{
+      clip: rect(0px, 75px, 155px, 0px);
+      top: -79px;
+      //left:-77px;
+    }
+    .h-tw{
+      clip: rect(0px, 75px, 233px, 0px);
+      top: -158px;
+      left: 80px;
+    }
+
+    .h-tw:hover{
+      clip: rect(0px, 75px, 313px, 0px);
+      top: -237px;
+      left: 80px;
+    }
+
+    .h-gp{
+      clip: rect(0px, 75px, 392px, 0px);
+      top: -315px;
+      left: 160px;
+    }
+
+    .h-gp:hover{
+      clip: rect(0px, 75px, 472px, 0px);
+      top: -394px;
+      left: 160px;
+    }
   }
 
   @media (min-width: $screen-lg) {
@@ -64,7 +121,6 @@ header img {
 
   @media (min-width: $screen-lg) {
     top: 0;
-    left: -25px;
   }
 }
 

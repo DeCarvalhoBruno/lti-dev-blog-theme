@@ -185,7 +185,7 @@ function get_sidebar_with_scrollspy(){
     $htmlLevel = 0;
     $m = [];
     if ($tags->length > 0) {
-        $html.='<div id="navbar-toc" data-spy="affix" data-offset-top="250" data-offset-bottom="100">';
+        $html.='<div id="navbar-toc" data-spy="affix" data-offset-top="250" data-offset-bottom="250">';
         foreach ($tags as $tag) {
             preg_match("#(?<=h)[1-6]#", $tag->tagName, $m);
             if (isset($m[0])) {
@@ -206,25 +206,7 @@ function get_sidebar_with_scrollspy(){
         $html.="</div>\n";
     }
     echo $html;
-//echo '
-//    <div id="navbar-toc" data-spy="affix" data-offset-top="250" data-offset-bottom="100">
-//        <ul class="nav nav-stacked">
-//            <li><a href="#scrollspy1">1</a></li>
-//            <li><a href="#scrollspy2">2</a></li>
-//            <li><a href="#scrollspy3">3</a></li>
-//            <li><a href="#scrollspy4">4</a></li>
-//            <li>
-//                <a href="#scrollspy5">5</a>
-//                <ul class="nav">
-//                <li><a href="#scrollspy5-1">5.1</a></li>
-//                <li><a href="#scrollspy5-2">5.2</a></li>
-//                <li><a href="#scrollspy5-3">5.3</a></li>
-//                </ul>
-//            </li>
-//            <li><a href="#scrollspy6">6</a></li>
-//        </ul>
-//    </div>
-//';
+
 }
 endif;
 //add_filter( 'parse_query', 'get_sidebar_with_scrollspy' );
