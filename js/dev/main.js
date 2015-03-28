@@ -1,0 +1,1 @@
+SyntaxHighlighter.all({'gutter':false,'toolbar':false});

@@ -6,9 +6,9 @@
     display: block;
 
     .social-media-headers{
-      position:absolute;
-      top: 20px;
-      right: 20px;
+      position: relative;
+      margin: 0 auto;
+      display:block;
       height: 81px;
       width: 235px;
       overflow: hidden;
@@ -18,29 +18,29 @@
       position:absolute;
       background-image: url('images/social_aligned.png');
       background-repeat: no-repeat;
-      //background-size: cover;
       height: 469px;
       width: 75px;
       top:0;
       left:0;
+
     }
 
     .h-fb{
       clip: rect(0px, 75px, 75px, 0px);
-      //clip: rect(0px, 150px, 75px, 75px);
       top: 0;
       left:0;
+      transition: all 0.5s ease-in-out;
     }
 
     .h-fb:hover{
       clip: rect(0px, 75px, 155px, 0px);
       top: -79px;
-      //left:-77px;
     }
     .h-tw{
       clip: rect(0px, 75px, 233px, 0px);
       top: -158px;
       left: 80px;
+      transition: all 0.5s ease-in-out;
     }
 
     .h-tw:hover{
@@ -53,6 +53,7 @@
       clip: rect(0px, 75px, 392px, 0px);
       top: -315px;
       left: 160px;
+      transition: all 0.5s ease-in-out;
     }
 
     .h-gp:hover{
@@ -62,8 +63,17 @@
     }
   }
 
-  @media (min-width: $screen-lg) {
+  @media (min-width: $screen-sm) {
     margin: 0 0 10px;
+
+    .social-media-headers{
+      position:absolute;
+      top: 20px;
+      right: 30px;
+      height: 81px;
+      width: 235px;
+      overflow: hidden;
+    }
   }
 }
 

@@ -7,7 +7,6 @@ var gulp = require( 'gulp' ),
     stylish = require( 'jshint-stylish' ),
     uglify = require( 'gulp-uglify' ),
     rename = require( 'gulp-rename' ),
-    notify = require( 'gulp-notify' ),
     include = require( 'gulp-include' ),
     sass = require( 'gulp-sass' );
 
@@ -34,10 +33,21 @@ gulp.task( 'jshint', function() {
         .pipe( jshint.reporter( 'fail' ) );
 });
 
-gulp.task( 'js', function() {
-    return gulp.src( './js/manifest.js' )
+gulp.task( 'js_main', function() {
+    return gulp.src( './js/manifest_main.js' )
         .pipe( include() )
-        .pipe( rename( { basename: 'scripts' } ) )
+        .pipe( rename( { basename: 'main' } ) )
+        .pipe( gulp.dest( './js/dist' ) )
+        .pipe( uglify() )
+        .pipe( rename( { suffix: '.min' } ) )
+        .pipe( gulp.dest( './js/dist' ) )
+        .pipe( livereload() );
+} );
+
+gulp.task( 'js_single', function() {
+    return gulp.src( './js/manifest_single.js' )
+        .pipe( include() )
+        .pipe( rename( { basename: 'single' } ) )
         .pipe( gulp.dest( './js/dist' ) )
         .pipe( uglify() )
         .pipe( rename( { suffix: '.min' } ) )
@@ -48,7 +58,7 @@ gulp.task( 'js', function() {
 gulp.task( 'watch', function() {
     livereload.listen();
     gulp.watch( './sass/**/*.scss', [ 'scss' ] );
-    gulp.watch( './js/**/*.js', [ 'js' ] );
+    //gulp.watch( './js/**/*.js', [ 'js' ] );
 
     gulp.watch( './**/*.php' ).on( 'change', function( file ) {
         livereload.changed( file );

@@ -1,0 +1,25 @@
+.post-it-note {
+  position:relative;
+  margin: 25px auto;
+  min-height:90px;
+  width:60%;
+  padding:10px 80px 10px 15px;
+  background: #faf587;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.post-it-note::after {
+  content:'';
+  position:absolute;
+  box-shadow:-1px 1px 3px -4px rgba(0,0,0,0.2);
+}
+
+.post-it-note::after{
+  top:0;
+  right:0;
+  border-bottom:#ffffff 0 solid;
+  border-top:#ffffff 65px solid;
+  border-left: #c3c06a 65px solid;
+}
