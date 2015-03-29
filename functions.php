@@ -128,7 +128,7 @@ function lti_widgets_init()
     register_sidebar(array(
         'name' => __('Sidebar', 'lti'),
         'id' => 'sidebar-1',
-        'description' => __('Appears on the right side of the site'),
+        'description' => __('Appears on the right side of the site', 'lti'),
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => '</aside>',
         'before_title' => '<h1 class="widget-title">',
@@ -222,8 +222,11 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
         $htmlLevel = 0;
         $m = [];
         if ($tags->length > 0) {
-            $html .= '<div id="navbar-toc" data-spy="affix" data-offset-top="250" data-offset-bottom="250">';
+            //We want the table of contents to have a fixed position when we've scolled 250px from the top
+            //until we're 650px from the bottom of the screen
+            $html .= '<div data-spy="affix" data-offset-top="250"  data-offset-bottom="650"><nav id="navbar-toc" role="navigation">';
             foreach ($tags as $tag) {
+                //we try to find h1 to h6 but we just capture the number
                 preg_match("#(?<=h)[1-6]#", $tag->tagName, $m);
                 if (isset($m[0])) {
                     $level = $m[0];
@@ -248,7 +251,8 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
 
                 }
             }
-            $html .= "</div>\n";
+            $html .= str_repeat('</li></ul>', $htmlLevel) . '</li>';
+            $html .= "<ul class=\"nav top-marker\"><li><a href=\"#\">Top</a></li></ul></nav></div>\n";
         }
         echo $html;
 

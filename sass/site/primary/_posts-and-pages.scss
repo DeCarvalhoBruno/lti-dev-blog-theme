@@ -4,6 +4,13 @@
 
 .hentry {
 	margin: 0 0 1.5em;
+  @media (min-width: $screen-xs) {
+    padding: 0 15px;
+  }
+  @media (min-width: $screen-lg) {
+    padding: 0;
+  }
+
 }
 
 .byline,

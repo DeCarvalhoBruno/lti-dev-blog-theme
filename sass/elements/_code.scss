@@ -8,12 +8,16 @@
 }
 
 pre.bash {
-  margin: 10px auto;
+  margin: 20px auto;
   width: 80%;
   border-radius: 5px;
   padding: 5px;
   background-color: #000000;
   color: #ffffff;
+}
+
+code {
+  background-color: $color__headers;
 }
 
 .syntaxhighlighter {
@@ -73,7 +77,7 @@ pre.bash {
   overflow-x: auto !important;
   border-radius: 5px;
   width: 80%;
-  margin: 35px auto;
+  margin: 25px auto;
   padding: 25px 5px;
   border: 1px solid #e6e6e6;
 
@@ -244,7 +248,7 @@ $gutter_text:					#787878 !default;
 $gutter_border_color:			#d4d0c8 !default;
 
 $toolbar_collapsed_a:			#3f5fbf !default;
-$toolbar_collapsed_a_hover:		#aa7700 !default;
+$toolbar_collapsed_a_hover:		#754200 !default;
 $toolbar_collapsed_background:	#fff !default;
 
 $toolbar_a:						#a0a0a0 !default;
@@ -255,7 +259,7 @@ $code_comments:					#3f5fbf !default;
 $code_string:					#2a00ff !default;
 $code_keyword:					#7f0055 !default;
 $code_preprocessor:				#646464 !default;
-$code_variable:					#aa7700 !default;
+$code_variable:                 #754200 !default;
 $code_value:					#009900 !default;
 $code_functions:				#ff1493 !default;
 $code_constants:				#0066cc !default;

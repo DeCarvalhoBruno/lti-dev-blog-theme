@@ -45,7 +45,7 @@
     position: relative;
     display: block;
     overflow: hidden;
-    top: 25px;
+    top: 50px;
     float: right;
     width: 25%;
   }
@@ -55,8 +55,18 @@
     top: 40px;
   }
 
+  .affix-bottom {
+    position: fixed;
+    top: 0;
+  }
+
   #navbar-toc li.active ul {
     display: block;
+  }
+
+  .top-marker a, .top-marker a:hover, .top-marker a:visited {
+    color: #aaa;
+    font-size: .8em;
   }
 
   #navbar-toc li > a {
@@ -90,6 +100,7 @@
   }
 
   .nav > li > a {
+    color: #555555;
     position: relative;
     display: block;
     padding: 10px 15px;
@@ -98,7 +109,11 @@
   .nav > li > a:hover,
   .nav > li > a:focus {
     text-decoration: none;
-    background-color: #eeeeee;
+    color: #111111;
+  }
+
+  .top-marker > li > a:hover {
+    background: none;
   }
 
   .nav > li.disabled > a {
