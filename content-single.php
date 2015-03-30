@@ -8,9 +8,16 @@
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-		<div class="entry-meta adt">
-			<?php lti_posted_on(); ?>
-		</div><!-- .entry-meta -->
+        <div class="below-title-meta">
+            <div class="adt">
+                <div class="user-icon"></div>
+                    <span class="author">
+                        <?php echo the_author_posts_link(); ?>
+                     </span>
+                <span class="meta-sep">|</span>
+                <?php lti_posted_on(); ?>
+            </div>
+        </div>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

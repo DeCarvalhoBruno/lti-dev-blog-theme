@@ -8,6 +8,7 @@
     margin: 25px 0 0;
     width: $size__site-main;
     border: 1px solid $color__headers;
+    border-radius: 5px;
   }
 
   .site-main {
@@ -19,7 +20,34 @@
   .adt {
     margin-left: 5%;
     opacity: .7;
+
+    .author, .meta-sep, .posted-on {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .user-icon {
+      background-repeat: no-repeat;
+      background-image: url('images/icons.png');
+      width:20px;
+      height:20px;
+      margin: 0 10px 4px 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .date-icon {
+      background-repeat: no-repeat;
+      background-image: url('images/icons.png');
+      background-position: -20px 0;
+      width:20px;
+      height:20px;
+      margin: 0 10px 4px 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
+
 
   .meta-sep {
     margin: 0 20px;

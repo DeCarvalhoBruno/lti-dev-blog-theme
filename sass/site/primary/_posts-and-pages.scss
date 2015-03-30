@@ -40,6 +40,15 @@
   a:hover {
     text-decoration: underline;
   }
+
+
+  @media (min-width: $screen-xs) {
+    font-size: 1.5em;
+  }
+  @media (min-width: $screen-sm) {
+    font-size: 1.9em;
+  }
+
 }
 
 .posted-on, .posted-on a {

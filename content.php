@@ -16,14 +16,7 @@
 
         <?php if ('post' == get_post_type()) : ?>
             <div class="below-title-meta">
-                <div class="adt">
-                    <?php _e('By', 'lti'); ?>
-                    <span class="author">
-                        <?php echo the_author_posts_link(); ?>
-                     </span>
-                    <span class="meta-sep">|</span>
-                    <?php lti_posted_on(); ?>
-                </div>
+            <?php lti_about_author(); ?>
             </div>
         <?php endif; ?>
     </header>
