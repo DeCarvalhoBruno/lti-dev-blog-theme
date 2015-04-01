@@ -224,7 +224,7 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
         if ($tags->length > 0) {
             //We want the table of contents to have a fixed position when we've scolled 250px from the top
             //until we're 650px from the bottom of the screen
-            $html .= '<div data-spy="affix" data-offset-top="250"  data-offset-bottom="650"><nav id="navbar-toc" role="navigation">';
+            $html .= '<div id="affix-wrapper"><nav id="navbar-toc" role="navigation">';
             foreach ($tags as $tag) {
                 //we try to find h1 to h6 but we just capture the number
                 preg_match("#(?<=h)[1-6]#", $tag->tagName, $m);

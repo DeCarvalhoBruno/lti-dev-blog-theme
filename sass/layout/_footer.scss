@@ -1,4 +1,4 @@
-#colophon .widget{
+.site-footer .widget {
   margin: 15px 15px 0;
 
   h1 {
@@ -20,24 +20,22 @@
   }
 }
 
-footer {
-  min-height: 200px;
-  margin-top: 50px;
-  text-align: left;
-}
 .site-info {
   position: relative;
-  width: 25%;
-  margin: 0 auto;
-  margin-top: 50px;
-}
-.site-info a {
+  width: 50%;
+  margin: 25px auto;
   text-align: center;
+}
+
+.site-info a {
   font-size: .8em;
 }
 
-
 .site-footer {
+  border-radius: 10px;
+  margin: 0 0 20px 0;
+  min-height: 200px;
+  background-color: #e1e1e1;
   clear: both;
   width: $size__site-main;
 }

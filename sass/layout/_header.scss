@@ -1,9 +1,12 @@
 #masthead {
   @media (min-width: $screen-xs) {
     position: relative;
-    margin: 0;
+    margin: 15px 0;
     text-align: center;
     display: block;
+    background-color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 
     .social-media-headers{
       position: relative;
@@ -64,7 +67,7 @@
   }
 
   @media (min-width: $screen-sm) {
-    margin: 0 0 10px;
+    margin: 10px 0 10px;
 
     .social-media-headers{
       position:absolute;
@@ -120,6 +123,7 @@ header img {
 
   @media (min-width: $screen-sm) {
     position: absolute;
+    margin: 15px 0 0 20px;
   }
 }
 
@@ -140,10 +144,18 @@ header img {
     width: 349px;
   }
 
-  @media (min-width: $screen-sm) {
-    margin: 0;
+  @media (min-width: $screen_sm) {
+    height: 71px;
+    width: 300px;
+    margin: 0 0 0 20px;
     top: 50px;
     left: 155px;
+  }
+
+  @media (min-width: $screen-md) {
+    height: 84px;
+    width: 349px;
+
   }
 
 }

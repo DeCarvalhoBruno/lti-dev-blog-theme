@@ -127,7 +127,8 @@ if (!function_exists('lti_entry_footer')) :
             /* translators: used between list items, there is a space after the comma */
             $categories_list = get_the_category_list(__(', ', 'lti'));
             if ($categories_list && lti_categorized_blog()) {
-                printf('<span class="cat-links">' . __('Categories: %1$s', 'lti') . '</span>', $categories_list);
+                echo '<div class="category-icon"></div>';
+                printf('<span class="cat-links">' . __('%1$s', 'lti') . '</span>', $categories_list);
             }
 
             /* translators: used between list items, there is a space after the comma */

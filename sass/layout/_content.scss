@@ -1,20 +1,47 @@
 .site-content {
+  position: relative;
   min-height: 500px;
+  z-index: 1;
+
+  @media (min-width: $screen-xs) {
+    .comments-area {
+      clear:both;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      width: 100%;
+      background-color: $color__content;
+    }
+    .comment-respond {
+      width: 95%;
+      margin: 0 auto;
+      padding: 5px;
+    }
+  }
+
+  @media (min-width: $screen-md) {
+    .comment-respond {
+      width: 70%;
+      padding: 20px;
+    }
+  }
+
 }
 
 @media (min-width: $screen-xs) {
   .content-area {
     float: left;
-    margin: 25px 0 0;
+    margin: 0 0 25px;
     width: $size__site-main;
     border: 1px solid $color__headers;
-    border-radius: 5px;
+    background-color: $color__content;
   }
 
   .site-main {
-    border-left: 1px solid $color__headers;
-    border-right: 1px solid $color__headers;
+    position: relative;
+    //border-left: 1px solid $color__headers;
+    //border-right: 1px solid $color__headers;
     margin: 0;
+    z-index:2;
   }
 
   .adt {
@@ -34,6 +61,7 @@
       margin: 0 10px 4px 0;
       display: inline-block;
       vertical-align: middle;
+      opacity: .6;
     }
 
     .date-icon {
@@ -45,9 +73,9 @@
       margin: 0 10px 4px 0;
       display: inline-block;
       vertical-align: middle;
+      opacity: .6;
     }
   }
-
 
   .meta-sep {
     margin: 0 20px;
@@ -71,10 +99,6 @@
     margin-bottom: 10px;
   }
 
-  .cat-links {
-    margin: 0 0 0 25px;
-  }
-
   .cat-links, .cat-links a {
     font-size: .9em;
     color: #b2b2b2;
@@ -84,16 +108,39 @@
 @media (min-width: $screen-md) {
   .content-area {
     float: left;
-    margin: 25px (-$size__site-sidebar) 0 0;
+    margin: 0 (-$size__site-sidebar) 25px 0;
     width: $size__site-main;
+  }
+
+  .content-area:after {
+    z-index:0;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: $size__site-main - $size__site-sidebar;
+    height: 92%;
+    border-right: 1px dashed $color__headers;
+    content: "";
   }
 
   .site-main {
     margin: 0 $size__site-sidebar 0 0;
   }
 
-  .single-post .site-main {
-    margin: 0 $size__post-sidebar 0 0;
+  .single-post {
+
+    .content-area {
+      margin: 0 (-$size__post-sidebar) 30px 0;
+    }
+
+    .content-area:after {
+      width: $size__site-main - $size__post-sidebar;
+    }
+
+
+    .site-main {
+      margin: 0 $size__post-sidebar 0 0;
+    }
   }
 
 
