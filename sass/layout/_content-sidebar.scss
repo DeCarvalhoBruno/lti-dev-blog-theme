@@ -6,9 +6,11 @@
     top: 25px;
 
     aside {
-      display: inline-block;
-      vertical-align: top;
-      width: 33%;
+      //display: inline-block;
+      display:block;
+      width: 95%;
+      margin: 0 auto;
+      text-align: center;
     }
   }
 
@@ -17,10 +19,14 @@
   }
 }
 
-@media (min-width: $screen-xs) {
+@media (min-width: $screen-sm) {
   .site-content .widget-area {
-    aside {
-
+    width: 95%;
+    margin: 0 auto;
+     aside {
+      float: left;
+      vertical-align: top;
+      width: 29%;
     }
   }
 }

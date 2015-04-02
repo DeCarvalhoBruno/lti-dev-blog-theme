@@ -24,3 +24,5 @@ function lti_customize_preview_js() {
 	wp_enqueue_script( 'lti_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
 add_action( 'customize_preview_init', 'lti_customize_preview_js' );
+
+

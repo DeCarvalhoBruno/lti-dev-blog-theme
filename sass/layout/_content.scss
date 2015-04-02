@@ -1,13 +1,12 @@
 .site-content {
-  position: relative;
-  min-height: 500px;
-  z-index: 1;
-
   @media (min-width: $screen-xs) {
+    position: relative;
+    min-height: 500px;
+    z-index: 1;
+    margin-bottom: 50px;
     .comments-area {
       clear:both;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
+
       width: 100%;
       background-color: $color__content;
     }
@@ -19,6 +18,12 @@
   }
 
   @media (min-width: $screen-md) {
+    margin: 0;
+    .comments-area {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
     .comment-respond {
       width: 70%;
       padding: 20px;
@@ -112,13 +117,13 @@
     width: $size__site-main;
   }
 
-  .content-area:after {
+  .site-main:after {
     z-index:0;
     position:absolute;
     top: 0;
     left: 0;
-    width: $size__site-main - $size__site-sidebar;
-    height: 92%;
+    width: $size__site-main;
+    height: 100%;
     border-right: 1px dashed $color__headers;
     content: "";
   }

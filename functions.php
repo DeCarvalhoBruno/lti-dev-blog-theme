@@ -117,6 +117,26 @@ function new_excerpt_more($more)
 
 add_filter('excerpt_more', 'new_excerpt_more');
 
+/**
+ * Defined params for the tag cloud widget
+ *
+ * @param $args
+ * @return mixed
+ * @see wp_tag_cloud()
+ * @link https://developer.wordpress.org/reference/hooks/widget_tag_cloud_args/
+ * @link https://codex.wordpress.org/Function_Reference/wp_tag_cloud
+ */
+function new_widget_tag_cloud_args($args = '')
+{
+    $args['number'] = 20;
+    $args['largest'] = 20;
+    $args['smallest'] = 10;
+    $args['order'] = 'RAND';
+    $args['unit'] = 'px';
+    return $args;
+}
+add_filter('widget_tag_cloud_args', 'new_widget_tag_cloud_args');
+
 
 /**
  * Register widget area.
@@ -137,6 +157,15 @@ function lti_widgets_init()
     register_sidebar(array(
         'name' => __('Footer Widget Area', 'lti'),
         'id' => 'sidebar-2',
+        'description' => __('Appears in the footer section of the site.', 'lti'),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => '</aside>',
+        'before_title' => '<h1 class="widget-title">',
+        'after_title' => '</h1>',
+    ));
+    register_sidebar(array(
+        'name' => __('Footer Widget Area2', 'lti'),
+        'id' => 'sidebar-3',
         'description' => __('Appears in the footer section of the site.', 'lti'),
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => '</aside>',
@@ -281,4 +310,8 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Load Jetpack compatibility file.
  */
-require get_template_directory() . '/inc/jetpack.php';
+//require get_template_directory() . '/inc/jetpack.php';
+/**
+ * Personalized meta widget
+ */
+require get_template_directory() . '/inc/widget_meta.php';

@@ -5,8 +5,6 @@
     text-align: center;
     display: block;
     background-color: #ffffff;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 
     .social-media-headers{
       position: relative;
@@ -25,7 +23,6 @@
       width: 75px;
       top:0;
       left:0;
-
     }
 
     .h-fb{
@@ -77,6 +74,11 @@
       width: 235px;
       overflow: hidden;
     }
+  }
+
+  @media (min-width: $screen-lg) {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 }
 

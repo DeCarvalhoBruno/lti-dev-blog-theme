@@ -1,5 +1,23 @@
-.site-footer .widget {
-  margin: 15px 15px 0;
+.site-footer {
+  .footer-sidebar {
+    display: block;
+    clear: both;
+  }
+  @media (min-width: $screen-xs) {
+    margin: 0 0 20px 0;
+    min-height: 200px;
+    background-color: #e1e1e1;
+    clear: both;
+    width: $size__site-main;
+  }
+  @media (min-width: $screen-lg) {
+    border-radius: 10px;
+  }
+
+  .widget-area {
+    margin-bottom: 25px;
+    min-height: 100px;
+  }
 
   h1 {
     font-family: $font__article_header;
@@ -10,32 +28,45 @@
     letter-spacing: .05em;
   }
 
-  ul {
-    text-decoration: none;
-    list-style-type: none;
-    margin: 0;
-    li {
-      margin-top: 10px;
+  .widget {
+    margin: 15px 15px 0;
+  }
+
+  .footer-widgets {
+    .widget {
+      width: 30%;
+      float: left;
     }
   }
-}
 
-.site-info {
-  position: relative;
-  width: 50%;
-  margin: 25px auto;
-  text-align: center;
-}
+  .sitemap {
 
-.site-info a {
-  font-size: .8em;
-}
+    .menu-main-menu-container {
+      width: 100%;
+    }
+    ul {
+      text-decoration: none;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      li {
+        float: left;
+        margin: 10px 25px 0;
+      }
+    }
+  }
 
-.site-footer {
-  border-radius: 10px;
-  margin: 0 0 20px 0;
-  min-height: 200px;
-  background-color: #e1e1e1;
-  clear: both;
-  width: $size__site-main;
+  .site-info {
+    clear:both;
+    position: relative;
+    width: 50%;
+    margin: 25px auto;
+    text-align: center;
+  }
+
+  .site-info a {
+    font-size: .8em;
+  }
+
 }
