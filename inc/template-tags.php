@@ -40,13 +40,13 @@ if (!function_exists('the_posts_navigation')) :
     }
 endif;
 
-if (!function_exists('the_post_navigation')) :
+if (!function_exists('lti_the_post_navigation')) :
     /**
      * Display navigation to next/previous post when applicable.
      *
      * @todo Remove this function when WordPress 4.3 is released.
      */
-    function the_post_navigation()
+    function lti_the_post_navigation()
     {
         // Don't print empty markup if there's nowhere to navigate.
         $previous = (is_attachment()) ? get_post(get_post()->post_parent) : get_adjacent_post(false, '', true);
@@ -58,11 +58,10 @@ if (!function_exists('the_post_navigation')) :
         ?>
         <nav class="navigation post-navigation" role="navigation">
             <h2 class="screen-reader-text"><?php _e('Post navigation', 'lti'); ?></h2>
-
             <div class="nav-links">
                 <?php
-                previous_post_link('<div class="nav-previous">%link</div>', '%title');
-                next_post_link('<div class="nav-next">%link</div>', '%title');
+                previous_post_link('<div class="nav-previous"><div class="previous-icon"></div>%link</div>', '%title');
+                next_post_link('<div class="nav-next"><div class="next-icon"></div>%link</div>', '%title');
                 ?>
             </div>
             <!-- .nav-links -->

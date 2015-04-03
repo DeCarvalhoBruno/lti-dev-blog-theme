@@ -14,7 +14,7 @@ get_header(); ?>
 
 			<?php get_template_part( 'content', 'single' ); ?>
 
-			<?php the_post_navigation(); ?>
+			<?php lti_the_post_navigation(); ?>
 
 		<?php endwhile; // end of the loop. ?>
 		</main><!-- #main -->
