@@ -4,30 +4,13 @@
     min-height: 500px;
     z-index: 1;
     margin-bottom: 50px;
-    .comments-area {
-      clear:both;
-
-      width: 100%;
-      background-color: $color__content;
-    }
-    .comment-respond {
-      width: 95%;
-      margin: 0 auto;
-      padding: 5px;
-    }
+    background-color: #ffffff;
   }
 
   @media (min-width: $screen-md) {
-    margin: 0;
-    .comments-area {
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
-
-    .comment-respond {
-      width: 70%;
-      padding: 20px;
-    }
+    border-bottom-left-radius: $main_elements_border_radius;
+    border-bottom-right-radius: $main_elements_border_radius;
+    margin: 0 0 25px;
   }
 
 }
@@ -37,7 +20,7 @@
     float: left;
     margin: 0 0 25px;
     width: $size__site-main;
-    border: 1px solid $color__headers;
+    //border: 1px solid $color__headers;
     background-color: $color__content;
   }
 
@@ -94,6 +77,14 @@
   .entry-content,
   .entry-summary {
     margin: 1em 0 0;
+
+    h2 {
+      margin: 2em 0 .5em;
+    }
+
+    h3 {
+      margin: 1.5em 0 .3em;
+    }
   }
 
   .entry-summary {
@@ -106,7 +97,7 @@
 
   .cat-links, .cat-links a {
     font-size: .9em;
-    color: #b2b2b2;
+    color: $color__link;
   }
 }
 

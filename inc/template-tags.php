@@ -7,13 +7,13 @@
  * @package lti
  */
 
-if (!function_exists('the_posts_navigation')) :
+if (!function_exists('lti_the_posts_navigation')) :
     /**
      * Display navigation to next/previous set of posts when applicable.
      *
      * @todo Remove this function when WordPress 4.3 is released.
      */
-    function the_posts_navigation()
+    function lti_the_posts_navigation()
     {
         // Don't print empty markup if there's only one page.
         if ($GLOBALS['wp_query']->max_num_pages < 2) {
@@ -26,7 +26,7 @@ if (!function_exists('the_posts_navigation')) :
             <div class="nav-links">
 
                 <?php if (get_next_posts_link()) : ?>
-                    <div class="nav-previous"><?php next_posts_link(__('Older posts', 'lti')); ?></div>
+                    <div class="nav-previous"><div class="previous-icon"></div><?php next_posts_link(__('Older posts', 'lti')); ?></div>
                 <?php endif; ?>
 
                 <?php if (get_previous_posts_link()) : ?>
@@ -61,7 +61,7 @@ if (!function_exists('lti_the_post_navigation')) :
             <div class="nav-links">
                 <?php
                 previous_post_link('<div class="nav-previous"><div class="previous-icon"></div>%link</div>', '%title');
-                next_post_link('<div class="nav-next"><div class="next-icon"></div>%link</div>', '%title');
+                next_post_link('<div class="nav-next">%link<div class="next-icon"></div></div>', '%title');
                 ?>
             </div>
             <!-- .nav-links -->

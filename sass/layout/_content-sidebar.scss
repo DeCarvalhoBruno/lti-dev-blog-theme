@@ -7,7 +7,7 @@
 
     aside {
       //display: inline-block;
-      display:block;
+      display: block;
       width: 95%;
       margin: 0 auto;
       text-align: center;
@@ -23,7 +23,7 @@
   .site-content .widget-area {
     width: 95%;
     margin: 0 auto;
-     aside {
+    aside {
       float: left;
       vertical-align: top;
       width: 29%;
@@ -70,9 +70,12 @@
     display: block;
   }
 
-  .top-marker a, .top-marker a:hover, .top-marker a:visited {
-    color: #aaa;
-    font-size: .8em;
+  .nav.top-marker {
+    a, a:hover, a:visited {
+      color: #ccc;
+      font-size: .8em;
+      background: none;
+    }
   }
 
   #navbar-toc li > a {
@@ -116,10 +119,6 @@
   .nav > li > a:focus {
     text-decoration: none;
     color: #111111;
-  }
-
-  .top-marker > li > a:hover {
-    background: none;
   }
 
   .nav > li.disabled > a {

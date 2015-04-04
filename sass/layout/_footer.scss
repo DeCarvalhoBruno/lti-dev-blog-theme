@@ -10,8 +10,9 @@
     clear: both;
     width: $size__site-main;
   }
+
   @media (min-width: $screen-lg) {
-    border-radius: 10px;
+    border-radius: $main_elements_border_radius;
   }
 
   .widget-area {
@@ -32,10 +33,22 @@
     margin: 15px 15px 0;
   }
 
-  .footer-widgets {
-    .widget {
-      width: 30%;
-      float: left;
+  @media (min-width: $screen-xs) {
+    .footer-widgets {
+      .widget {
+        width: 100%;
+        text-align: center;
+
+      }
+    }
+  }
+
+  @media (min-width: $screen-sm) {
+    .footer-widgets {
+      .widget {
+        width: 30%;
+        float: left;
+      }
     }
   }
 
@@ -58,7 +71,7 @@
   }
 
   .site-info {
-    clear:both;
+    clear: both;
     position: relative;
     width: 50%;
     margin: 25px auto;

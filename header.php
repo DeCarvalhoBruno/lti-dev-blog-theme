@@ -37,7 +37,7 @@
         </div>
         <!-- .site-branding -->
         <div class="social-media-headers">
-            <a class="social-header h-fb" target="_blank" href="#" alt="facebook group"></a>
+            <a class="social-header h-fb" target="_blank" href="https://www.facebook.com/groups/LinguisticTeamInternational/" alt="facebook group"></a>
             <a class="social-header h-tw" target="_blank" href="https://twitter.com/LinguisticTeam"
                alt="twitter page"></a>
             <a class="social-header h-gp" target="_blank" href="#" alt="google plus page"></a>

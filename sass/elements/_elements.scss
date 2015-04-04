@@ -23,6 +23,10 @@ blockquote, q {
 	}
 }
 
+p, li {
+  color: $color__text-paragraph;
+}
+
 hr {
 	background-color: $color__background-hr;
 	border: 0;
