@@ -20,14 +20,11 @@
     float: left;
     margin: 0 0 25px;
     width: $size__site-main;
-    //border: 1px solid $color__headers;
     background-color: $color__content;
   }
 
   .site-main {
     position: relative;
-    //border-left: 1px solid $color__headers;
-    //border-right: 1px solid $color__headers;
     margin: 0;
     z-index:2;
   }

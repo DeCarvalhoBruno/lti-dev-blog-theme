@@ -7,6 +7,10 @@
  * @package lti
  */
 
+function lti_the_generator($type){
+    return null;
+}
+add_filter( 'the_generator', 'lti_the_generator' );
 /**
  * Adds custom classes to the array of body classes.
  *

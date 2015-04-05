@@ -185,21 +185,11 @@ function lti_scripts()
 
     wp_enqueue_style('lti-style', get_stylesheet_uri());
 
-    //wp_enqueue_script( 'lti-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-    //wp_enqueue_script( 'lti-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
     if (is_singular()) {
         wp_enqueue_script('lti-scripts', get_template_directory_uri() . '/js/dist/single.min.js', array(), '1.0', true);
     } else {
         wp_enqueue_script('lti-scripts', get_template_directory_uri() . '/js/dist/main.min.js', array(), '1.0', true);
-
     }
-//    wp_localize_script(
-//        'lti-scripts',
-//        'code_prettify_settings',
-//        array(
-//            'base_url' => get_template_directory_uri().'/js/dist/prettify',
-//        )
-//    );
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
@@ -280,7 +270,7 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
 
                 }
             }
-            $html .= str_repeat('</li></ul>', $htmlLevel) . '</li>';
+            $html .= str_repeat('</li></ul>', $htmlLevel-$level) . '</li>';
             $html .= "<ul class=\"nav top-marker\"><li><a href=\"#\">Top</a></li></ul></nav></div>\n";
         }
         echo $html;
