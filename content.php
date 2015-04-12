@@ -28,7 +28,7 @@
                 <?php if (has_post_thumbnail()) : ?>
                     <a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Link to %s', 'lti'),
                         the_title_attribute('echo=0')); ?>" rel="bookmark">
-                        <?php the_post_thumbnail('excerpt-thumbnail', 'class=alignleft'); ?>
+                        <?php the_post_thumbnail('thumbnail', 'class=alignleft'); ?>
                     </a>
                 <?php endif; ?>
             </div>

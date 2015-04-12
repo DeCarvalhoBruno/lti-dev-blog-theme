@@ -49,6 +49,7 @@ if (!function_exists('lti_setup')) :
          * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
          */
         add_theme_support('post-thumbnails');
+	    set_post_thumbnail_size( 225, 150, false );
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
@@ -72,11 +73,7 @@ if (!function_exists('lti_setup')) :
          * See http://codex.wordpress.org/Post_Formats
          */
         add_theme_support('post-formats', array(
-            'aside',
-            'image',
-            'video',
-            'quote',
-            'link',
+	        'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
         ));
 
         // Set up the WordPress core custom background feature.
