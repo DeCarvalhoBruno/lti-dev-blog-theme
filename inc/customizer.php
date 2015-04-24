@@ -5,6 +5,7 @@
  * @package lti
  */
 
+if (!function_exists('lti_customize_register')) :
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
@@ -16,7 +17,9 @@ function lti_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
 add_action( 'customize_register', 'lti_customize_register' );
+endif;
 
+if (!function_exists('lti_customize_preview_js')) :
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
@@ -25,4 +28,4 @@ function lti_customize_preview_js() {
 }
 add_action( 'customize_preview_init', 'lti_customize_preview_js' );
 
-
+endif;

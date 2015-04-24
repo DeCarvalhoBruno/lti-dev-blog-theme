@@ -355,12 +355,3 @@ if (typeof jQuery === 'undefined') {
     })
 
 }(jQuery);
-$('#navbar-toc').affix({
-    offset: {
-        top: 250,
-        bottom: function () {
-            return (this.bottom = $('.site-footer').outerHeight(true)+$('.comments-area').outerHeight(true))
-        }
-    }
-});
-

@@ -1,5 +1,7 @@
 <?php
 
+if (!class_exists('meta_widget')) :
+
 /**
  * Class meta_widget
  */
@@ -60,6 +62,9 @@ class meta_widget extends WP_Widget
         return $instance;
     }
 }
+endif;
+
+if (!function_exists('wpb_load_widget')) :
 
 function wpb_load_widget()
 {
@@ -67,3 +72,4 @@ function wpb_load_widget()
 }
 
 add_action('widgets_init', 'wpb_load_widget');
+endif;

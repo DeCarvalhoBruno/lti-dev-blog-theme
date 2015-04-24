@@ -8,12 +8,11 @@
 @media (min-width: $screen-xs) {
   .comments-area {
     clear:both;
-
     width: 100%;
     background-color: $color__headers;
     border-top: 1px dashed #cccccc;
   }
-  .comment-respond {
+  .comment-respond, #disqus-thread {
     width: 95%;
     margin: 0 auto;
     padding: 5px;
@@ -28,6 +27,14 @@
 
   .comment-respond {
     width: 70%;
+    margin:0 auto;
     padding: 20px;
   }
+
+  #disqus_thread {
+    width: 70%;
+    margin:0;
+    padding: 20px;
+  }
+
 }

@@ -11,7 +11,8 @@ var gulp = require( 'gulp' ),
     sass = require( 'gulp-sass' );
 
 var onError = function( err ) {
-    console.log( 'An error occurred:', err.message );
+    console.log( 'An error occurred:', err );
+    console.log(err);
     this.emit( 'end' );
 };
 
@@ -58,7 +59,7 @@ gulp.task( 'js_single', function() {
 gulp.task( 'watch', function() {
     livereload.listen();
     gulp.watch( './sass/**/*.scss', [ 'scss' ] );
-    //gulp.watch( './js/**/*.js', [ 'js' ] );
+    gulp.watch( './js/dev/**/*.js', [ 'js_single' ] );
 
     gulp.watch( './**/*.php' ).on( 'change', function( file ) {
         livereload.changed( file );

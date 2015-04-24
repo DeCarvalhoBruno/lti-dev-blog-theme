@@ -90,7 +90,7 @@ if (!function_exists('lti_posted_on')) :
 
         $posted_on = sprintf(
             '<div class="date-icon"></div> %s',
-            '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+            '<a href="' . esc_url(get_month_link(get_the_date('Y'),get_the_date('n'))) . '" rel="bookmark">' . $time_string . '</a>'
         );
 
         echo '<span class="posted-on">' . $posted_on . '</span>';
@@ -243,6 +243,8 @@ if (!function_exists('the_archive_description')) :
     }
 endif;
 
+if (!function_exists('lti_categorized_blog')) :
+
 /**
  * Returns true if a blog has more than 1 category.
  *
@@ -273,6 +275,9 @@ function lti_categorized_blog()
         return false;
     }
 }
+endif;
+
+if (!function_exists('lti_category_transient_flusher')) :
 
 /**
  * Flush out the transients used in lti_categorized_blog.
@@ -288,3 +293,4 @@ function lti_category_transient_flusher()
 
 add_action('edit_category', 'lti_category_transient_flusher');
 add_action('save_post', 'lti_category_transient_flusher');
+endif;

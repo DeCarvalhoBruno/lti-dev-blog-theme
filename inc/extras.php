@@ -7,10 +7,14 @@
  * @package lti
  */
 
-function lti_the_generator($type){
+if (!function_exists('lti_the_post_navigation')) :
+function lti_the_post_navigation($type){
     return null;
 }
 add_filter( 'the_generator', 'lti_the_generator' );
+endif;
+
+if (!function_exists('lti_body_classes')) :
 /**
  * Adds custom classes to the array of body classes.
  *
@@ -26,6 +30,7 @@ function lti_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'lti_body_classes' );
+endif;
 
 if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	/**
@@ -72,4 +77,18 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 		<?php
 	}
 	add_action( 'wp_head', 'lti_render_title' );
+endif;
+
+if (!function_exists('lti_extract_array_object_value')) :
+function lti_extract_array_object_value( $values, $field ) {
+	$vals = array();
+	if ( is_array( $values ) ) {
+		foreach ( $values as $value ) {
+			$vals[] = $value->{$field};
+		}
+	}
+
+	return $vals;
+
+}
 endif;

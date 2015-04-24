@@ -85,6 +85,7 @@ if (!function_exists('lti_setup')) :
 endif; // lti_setup
 add_action('after_setup_theme', 'lti_setup');
 
+if (!function_exists('lti_font_url')) :
 /**
  * Register Open Sans Google font.
  *
@@ -104,7 +105,9 @@ function lti_font_url()
 
     return $font_url;
 }
+endif; // lti_font_url
 
+if (!function_exists('new_excerpt_more')) :
 // Replaces the excerpt "more" text by a link
 function new_excerpt_more($more)
 {
@@ -113,7 +116,10 @@ function new_excerpt_more($more)
 }
 
 add_filter('excerpt_more', 'new_excerpt_more');
+endif; // new_excerpt_more
 
+
+if (!function_exists('new_widget_tag_cloud_args')) :
 /**
  * Defined params for the tag cloud widget
  *
@@ -133,8 +139,10 @@ function new_widget_tag_cloud_args($args = '')
     return $args;
 }
 add_filter('widget_tag_cloud_args', 'new_widget_tag_cloud_args');
+endif; // new_widget_tag_cloud_args
 
 
+if (!function_exists('lti_widgets_init')) :
 /**
  * Register widget area.
  *
@@ -144,7 +152,7 @@ function lti_widgets_init()
 {
     register_sidebar(array(
         'name' => __('Sidebar', 'lti'),
-        'id' => 'sidebar-1',
+        'id' => 'main-sidebar',
         'description' => __('Appears on the right side of the site', 'lti'),
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => '</aside>',
@@ -152,27 +160,30 @@ function lti_widgets_init()
         'after_title' => '</h1>',
     ));
     register_sidebar(array(
-        'name' => __('Footer Widget Area', 'lti'),
-        'id' => 'sidebar-2',
-        'description' => __('Appears in the footer section of the site.', 'lti'),
+        'name' => __('Footer top', 'lti'),
+        'id' => 'footer-top',
+        'description' => __('Appears on top of the footer section of the site (whole width).', 'lti'),
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => '</aside>',
         'before_title' => '<h1 class="widget-title">',
         'after_title' => '</h1>',
     ));
-    register_sidebar(array(
-        'name' => __('Footer Widget Area2', 'lti'),
-        'id' => 'sidebar-3',
-        'description' => __('Appears in the footer section of the site.', 'lti'),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h1 class="widget-title">',
-        'after_title' => '</h1>',
-    ));
+	register_sidebar(array(
+		'name' => __('Footer bottom', 'lti'),
+		'id' => 'footer-bottom',
+		'description' => __('Appears in the footer section of the site.', 'lti'),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h1 class="widget-title">',
+		'after_title' => '</h1>',
+	));
+
 }
 
 add_action('widgets_init', 'lti_widgets_init');
+endif; // lti_widgets_init
 
+if (!function_exists('lti_scripts')) :
 /**
  * Enqueue scripts and styles.
  */
@@ -186,6 +197,7 @@ function lti_scripts()
         wp_enqueue_script('lti-scripts', get_template_directory_uri() . '/js/dist/single.min.js', array(), '1.0', true);
     } else {
         wp_enqueue_script('lti-scripts', get_template_directory_uri() . '/js/dist/main.min.js', array(), '1.0', true);
+        //wp_enqueue_script('lti-scripts', get_template_directory_uri() . '/js/dist/extra.js', array(), '1.0', true);
     }
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -194,7 +206,9 @@ function lti_scripts()
 }
 
 add_action('wp_enqueue_scripts', 'lti_scripts');
+endif; // lti_scripts
 
+if (!function_exists('lti_body_extra_attributes')) :
 /**
  * Adding the scrollspy attributes to a body tag if we're in a single post,
  * where we want to display a table of contents if we want to.
@@ -210,74 +224,14 @@ function lti_body_extra_attributes()
 }
 
 add_action('after_setup_theme', 'lti_body_extra_attributes');
+endif; // lti_body_extra_attributes
 
-if (!function_exists('get_sidebar_with_scrollspy')) :
-
-    /**
-     * This functions grabs every h1 to h6 element in a post content and displays it as a table of content
-     * of sorts that follows the current scroll position.
-     *
-     * Relies on the scrollspy and affix functions from twitter bootstrap.
-     *
-     * Nesting hasn't been tested beyond the two levels I required for my initial setup. I don't think
-     * more than two levels would render very well on such a narrow space.
-     *
-     */
-    function get_sidebar_with_scrollspy()
-    {
-
-        $content = get_the_content();
-
-        //We load the post content into a DOMDocument object so we can get to the elements we want quickly
-        $s = new DOMDocument();
-        @$s->loadHTML($content);
-        $xpath = new DOMXPath($s);
-        //We run an XPath query asking for all elements with a toc class
-        $tags = $xpath->query('//*[@class="toc"]');
-        $html = '';
-        $htmlLevel = 0;
-        $m = [];
-        if ($tags->length > 0) {
-            //We want the table of contents to have a fixed position when we've scolled 250px from the top
-            //until we're 650px from the bottom of the screen
-            $html .= '<div id="affix-wrapper"><nav id="navbar-toc" role="navigation">';
-            foreach ($tags as $tag) {
-                //we try to find h1 to h6 but we just capture the number
-                preg_match("#(?<=h)[1-6]#", $tag->tagName, $m);
-                if (isset($m[0])) {
-                    $level = $m[0];
-                    if ($level == $htmlLevel) {
-                        if ($htmlLevel > 0) {
-                            $html .= "</li>\n";
-                        }
-                    } elseif ($level > $htmlLevel) {
-                        $html .= '<ul class="nav">';
-                    } elseif ($level < $htmlLevel) {
-                        $html .= str_repeat("</li></ul>\n", $htmlLevel - $level) . "</li>";
-                    }
-                    $htmlLevel = $level;
-
-                    $id = $tag->attributes->getNamedItem('id');
-                    if (is_object($id)) {
-                        $value = $id->value;
-                    } else {
-                        $value = "";
-                    }
-                    $html .= '<li><a href="#' . $value . '">' . trim($tag->nodeValue) . '</a>';
-
-                }
-            }
-            $html .= str_repeat('</li></ul>', $htmlLevel-$level) . '</li>';
-            $html .= "<ul class=\"nav top-marker\"><li><a href=\"#\">Top</a></li></ul></nav></div>\n";
-        }
-        echo $html;
-
-    }
-endif;
 /**
  * Implement the Custom Header feature.
  */
-//require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/custom-header.php';
+
+require get_template_directory() . '/inc/custom-content.php';
 
 /**
  * Custom template tags for this theme.

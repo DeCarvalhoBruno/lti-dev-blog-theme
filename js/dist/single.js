@@ -881,16 +881,19 @@ if (typeof jQuery === 'undefined') {
     })
 
 }(jQuery);
+SyntaxHighlighter.all({'gutter': false, 'toolbar': false});
 $('#navbar-toc').affix({
     offset: {
         top: 250,
         bottom: function () {
-            return (this.bottom = $('.site-footer').outerHeight(true)+$('.comments-area').outerHeight(true))
+            var commentsArea = 0;
+            var regularCommentsArea = $('.comments-area');
+            if (regularCommentsArea.length) {
+                commentsArea = regularCommentsArea.outerHeight(true);
+            }
+            return (this.bottom = ($('.site-footer').outerHeight(true) + commentsArea + 150));
         }
     }
 });
-
-
-SyntaxHighlighter.all({'gutter':false,'toolbar':false});
 
 

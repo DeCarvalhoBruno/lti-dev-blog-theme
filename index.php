@@ -15,7 +15,6 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main main" role="main">
-        <?php query_posts("posts_per_page=6");  ?>
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
@@ -29,9 +28,10 @@ get_header(); ?>
 					get_template_part( 'content', get_post_format() );
 				?>
 
+
 			<?php endwhile; ?>
 
-			<?php //the_posts_navigation(); ?>
+			<?php the_posts_navigation(); ?>
 
 		<?php else : ?>
 

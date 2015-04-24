@@ -2,7 +2,7 @@
   "name": "dev-blog",
   "version": "1.0.0",
   "description": "LTI dev blog",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
     "del": "^1.1.1",

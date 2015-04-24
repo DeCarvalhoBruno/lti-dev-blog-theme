@@ -15,6 +15,7 @@
  * @package lti
  */
 
+if ( ! function_exists( 'lti_custom_header_setup' ) ) :
 /**
  * Set up the WordPress core custom header feature.
  *
@@ -35,6 +36,7 @@ function lti_custom_header_setup() {
 	) ) );
 }
 add_action( 'after_setup_theme', 'lti_custom_header_setup' );
+endif; // lti_custom_header_setup
 
 if ( ! function_exists( 'lti_header_style' ) ) :
 /**
