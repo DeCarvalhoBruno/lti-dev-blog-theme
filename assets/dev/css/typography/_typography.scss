@@ -1,0 +1,21 @@
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include font-size(1);
+	line-height: $font__line-height-body;
+}
+
+@font-face {
+  font-family: 'share-icons';
+  src: url('assets/dist/fonts/fontello.eot?61696353') format('embedded-opentype'), url('assets/dist/fonts/fontello.woff') format('woff'), url('assets/dist/fonts/fontello.ttf') format('truetype'), url('assets/dist/fonts/fontello.svg?61696353#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import "headings";
+
+@import "copy";

@@ -1,0 +1,159 @@
+.widget {
+  margin: 0 0 1.5em;
+
+  /* Make sure select elements fit in widgets. */
+  select {
+    max-width: 100%;
+  }
+
+}
+
+#secondary .widget {
+  position: relative;
+  margin: 15px 15px 0;
+  z-index:1;
+
+  h1 {
+    font-family: $font__article_header;
+    font-size: 1.2em;
+    padding: 10px;
+    font-weight: 100;
+    margin: 0 0 25px;
+    background-color: $color__headers;
+    letter-spacing: .05em;
+    border-radius: 3px;
+  }
+
+  h1:before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 15px;
+    left: 45%;
+    width: 40px;
+    height: 40px;
+    background-color: $color__headers;
+    //padding:10px;
+    //border-bottom: 1px solid #f0c7c7;
+    //    µborder-radius: 10px;
+    transform: rotate(45deg);
+  }
+
+  ul {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 15px;
+    li {
+      margin: 10px 0;
+    }
+    a {
+      color: $color__subheaders;
+    }
+  }
+}
+
+/* Search widget. */
+.widget_search .search-submit {
+  display: none;
+}
+
+/*****************************************************************************
+
+*/
+
+#secondary #widget-share {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding:0;
+  margin:0;
+
+  .share-button:before {
+    width: 1em;
+    margin-right: .3em;
+    font-size: 200%;
+    top: 30%;
+    left: 18%;
+  }
+
+  $share-button-width: 75px;
+  $share-button-group-width: $share-button-width*3;
+  $share-button-height: 75px;
+  $share-button-group-height: $share-button-height*2;
+
+  .share-button-group {
+    width: $share-button-group-width;
+    height: $share-button-group-height;
+    position: relative;
+    list-style-type: none;
+    display: block;
+    margin: 20px auto;
+    padding: 0;
+  }
+
+  .share-button {
+    position: relative;
+    height: $share-button-height;
+    width: $share-button-width;
+    display: inline-block;
+    vertical-align: middle;
+    color: #ffffff;
+    margin: 0 -3px;
+    padding: 0;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+//      top: -30px;
+    }
+  }
+
+  span.counter {
+    color: #ffffff;
+    position: relative;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    overflow: hidden;
+    top: 5px;
+    left: 10px;
+  }
+
+  span.share-counter {
+    font-size: 100%;
+    position: relative;
+    top: 15px;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .share-button:before {
+    font-family: share-icons;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    //margin-right: .3em;
+    text-align: center;
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: -.5em;
+
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 170%;
+    position: relative;
+    top: 30%;
+    left: 15%;
+  }
+
+}

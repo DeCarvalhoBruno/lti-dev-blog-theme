@@ -6,9 +6,8 @@
  */
 
 get_header(); ?>
-
 	<div id="primary" class="content-area">
-
+		<div id="page-top"></div>
 		<main id="main" class="site-main" role="main">
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -17,6 +16,7 @@ get_header(); ?>
 			<?php lti_the_post_navigation(); ?>
 
 		<?php endwhile; // end of the loop. ?>
+		<?php echo Lti_Share_Widget::display('post-share'); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 <?php get_sidebar('single'); ?>
@@ -26,4 +26,5 @@ if ( comments_open() || get_comments_number() ) :
     comments_template();
 endif;
 ?>
+<div id="page-bottom"></div>
 <?php get_footer(); ?>

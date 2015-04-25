@@ -55,7 +55,7 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
 				}
 			}
 			$html .= str_repeat('</li></ul>', $htmlLevel-$level) . '</li>';
-			$html .= "<ul class=\"nav top-marker\"><li><a href=\"#\">Top</a></li></ul></nav></div>\n";
+			$html .= "<ul class=\"nav top-marker\"><li><a href=\"#page-top\">Top</a></li></ul></nav></div>\n";
 		}
 		echo $html;
 

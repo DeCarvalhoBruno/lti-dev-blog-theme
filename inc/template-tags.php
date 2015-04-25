@@ -126,15 +126,15 @@ if (!function_exists('lti_entry_footer')) :
             /* translators: used between list items, there is a space after the comma */
             $categories_list = get_the_category_list(__(', ', 'lti'));
             if ($categories_list && lti_categorized_blog()) {
-                echo '<div class="category-icon"></div>';
-                printf('<span class="cat-links">' . __('%1$s', 'lti') . '</span>', $categories_list);
+                printf('<span class="cat-links"><div class="category-icon"></div>' . __('%1$s', 'lti') . '</span>', $categories_list);
             }
 
+
             /* translators: used between list items, there is a space after the comma */
-//		$tags_list = get_the_tag_list( '', __( ', ', 'lti' ) );
-//		if ( $tags_list ) {
-//			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'lti' ) . '</span>', $tags_list );
-//		}
+		$tags_list = get_the_tag_list( '', __( ', ', 'lti' ) );
+		if ( $tags_list ) {
+			printf( '<span class="tags-links"><div class="tag-icon"></div>' . __( '%1$s', 'lti' ) . '</span>', $tags_list );
+		}
         }
 
 //	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {

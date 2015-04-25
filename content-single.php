@@ -17,9 +17,16 @@
                 <span class="meta-sep">|</span>
                 <?php lti_posted_on(); ?>
             </div>
-        </div>
-	</header><!-- .entry-header -->
 
+        </div>
+		<?php if (has_post_thumbnail()) : ?>
+		<div class="post-thumb">
+			<div class="thumb-img">
+				<?php the_post_thumbnail('medium', ''); ?>
+			</div>
+		</div>
+		<?php endif; ?>
+	</header><!-- .entry-header -->
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php

@@ -14,8 +14,9 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main main" role="main">
-		<?php if ( have_posts() ) : ?>
+		<main id="main" class="site-main main with-sidebar" role="main">
+		<div class="article-group">
+			<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -30,7 +31,7 @@ get_header(); ?>
 
 
 			<?php endwhile; ?>
-
+		</div>
 			<?php the_posts_navigation(); ?>
 
 		<?php else : ?>
