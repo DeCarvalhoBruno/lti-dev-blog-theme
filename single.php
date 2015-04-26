@@ -16,7 +16,7 @@ get_header(); ?>
 			<?php lti_the_post_navigation(); ?>
 
 		<?php endwhile; // end of the loop. ?>
-		<?php echo Lti_Share_Widget::display('post-share'); ?>
+		<?php echo Lti_Shares::display('post-share'); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 <?php get_sidebar('single'); ?>

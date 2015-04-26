@@ -64,7 +64,7 @@ gulp.task( 'js_single', function() {
 gulp.task( 'watch', function() {
     livereload.listen();
     gulp.watch( CSSDevDir+'**/*.scss', [ 'scss' ] );
-    gulp.watch( JSDevDir+'**/*.js', [ 'js_single' ] );
+    gulp.watch( JSDevDir+'**/*.js', [ 'js_single','js_main' ] );
 
     gulp.watch( './**/*.php' ).on( 'change', function( file ) {
         livereload.changed( file );

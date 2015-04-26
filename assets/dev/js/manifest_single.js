@@ -10,4 +10,5 @@
 //= include ./navigation.js
 //= include ./bootstrap.js
 //= include ./main.js
+//= include ./shared.js
 

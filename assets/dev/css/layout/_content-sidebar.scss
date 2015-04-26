@@ -1,52 +1,10 @@
 @media (min-width: $screen-xs) {
-  .site-content .widget-area {
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-    top: 25px;
-
-    aside {
-      //display: inline-block;
-      display: block;
-      width: 95%;
-      margin: 0 auto;
-      text-align: center;
-    }
-  }
-
   .site-content .table-contents {
     display: none;
   }
 }
 
-@media (min-width: $screen-sm) {
-  .site-content .widget-area {
-    width: 95%;
-    margin: 0 auto;
-    aside {
-      float: left;
-      vertical-align: top;
-      width: 29%;
-    }
-  }
-}
-
 @media (min-width: $screen-md) {
-
-  .site-content .widget-area {
-    float: right;
-    width: $size__site-sidebar;
-
-    aside {
-      display: block;
-      width: 90%;
-    }
-  }
-
-  .site-content .widget-area {
-    width: $size__site-sidebar;
-  }
-
   .site-content .table-contents {
     position: relative;
     display: block;
@@ -66,33 +24,39 @@
     top: 0;
   }
 
-  #navbar-toc li.active ul {
-    display: block;
-  }
-
-  .nav.top-marker {
-    a, a:hover, a:visited {
-      color: #ccc;
-      font-size: .8em;
-      background: none;
+  #navbar-toc {
+    li.active ul {
+      display: block;
     }
-  }
 
-  #navbar-toc li > a {
-    border-left: 2px solid #ffffff;
-  }
+    li > a {
+      border-left: 2px solid #ffffff;
+    }
 
-  #navbar-toc li.active > a {
-    background-color: #e9e9e9;
-  }
+    li.active > a {
+      background-color: #e9e9e9;
+    }
 
-  #navbar-toc li.active li.active > a {
-    background: none;
-    border-left: 2px solid #21759b;
-  }
+    li.active li.active > a {
+      background: none;
+      border-left: 2px solid #21759b;
 
-  #navbar-toc li ul {
-    display: none;
+    }
+
+    li ul {
+      display: none;
+    }
+
+    .top-marker {
+      li.active > a {
+        background-color: #ffffff;
+      }
+      a, a:hover, a:visited {
+        color: #ccc;
+        font-size: .8em;
+        background: none;
+      }
+    }
   }
 
   .nav {

@@ -19,7 +19,14 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+<script>
+	document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+	window.lti = {'vars':{
+		'api_url':"<?php echo LTI_BACKEND_API_URL;?>",
+		'api_token':"<?php echo LTI_BACKEND_API_TOKEN;?>",
+		'tested_url':"<?php echo 'http://forum.linguisticteam.org';?>"
+
+	}}
 </script>
 </body>
 </html>

@@ -14,7 +14,9 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
     <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri() ?>/assets/images/favicon.ico">
-    <?php wp_head(); ?>
+	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri() ?>/assets/images/logo.png">
+	<link type="text/plain" rel="author" href="humans.txt"/>
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?> <?php echo lti_body_extra_attributes(); ?>>
