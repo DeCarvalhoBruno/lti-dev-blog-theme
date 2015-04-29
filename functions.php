@@ -200,9 +200,9 @@ function lti_scripts()
         //wp_enqueue_script('lti-scripts', get_template_directory_uri() . '/js/dist/extra.js', array(), '1.0', true);
     }
 
-    if (is_singular() && comments_open() && get_option('thread_comments')) {
-        wp_enqueue_script('comment-reply');
-    }
+//    if (is_singular() && comments_open() && get_option('thread_comments')) {
+//        wp_enqueue_script('comment-reply');
+//    }
 }
 
 add_action('wp_enqueue_scripts', 'lti_scripts');

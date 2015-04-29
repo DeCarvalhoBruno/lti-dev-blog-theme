@@ -24,7 +24,7 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
 		//We run an XPath query asking for all elements with a toc class
 		$tags = $xpath->query('//*[@class="toc"]');
 		$html = '';
-		$htmlLevel = 0;
+		$htmlLevel = $level= 0;
 		$m = [];
 		if ($tags->length > 0) {
 			$html .= '<div id="affix-wrapper"><nav id="navbar-toc" role="navigation">';
@@ -32,17 +32,17 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
 				//we try to find h1 to h6 but we just capture the number
 				preg_match("#(?<=h)[1-6]#", $tag->tagName, $m);
 				if (isset($m[0])) {
-					$level = $m[0];
+					$level = $m[0]-1;
 					if ($level == $htmlLevel) {
 						if ($htmlLevel > 0) {
 							$html .= "</li>\n";
 						}
 					} elseif ($level > $htmlLevel) {
 						$html .= '<ul class="nav">';
+						$htmlLevel = $htmlLevel+($level-$htmlLevel);
 					} elseif ($level < $htmlLevel) {
 						$html .= str_repeat("</li></ul>\n", $htmlLevel - $level) . "</li>";
 					}
-					$htmlLevel = $level;
 
 					$id = $tag->attributes->getNamedItem('id');
 					if (is_object($id)) {
@@ -54,7 +54,7 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
 
 				}
 			}
-			$html .= str_repeat('</li></ul>', $htmlLevel-$level) . '</li>';
+			$html .= str_repeat('</li></ul>', $htmlLevel);
 			$html .= "<ul class=\"nav top-marker\"><li><a href=\"#page-top\">Top</a></li></ul></nav></div>\n";
 		}
 		echo $html;

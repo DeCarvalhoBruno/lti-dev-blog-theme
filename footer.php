@@ -11,10 +11,12 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="footer-elem-wrapper">
         <?php get_sidebar( 'footer' ); ?>
 		<div class="site-info">
-			<a href="<?php echo esc_url( 'http://info.linguisticteam.org' ); ?>"><?php _e( 'Linguistic Team International', 'lti' ); ?></a>
+			<a target="_blank" href="<?php echo esc_url( 'http://info.linguisticteam.org' ); ?>" rel="nofollow"><?php _e( 'Linguistic Team International', 'lti' ); ?></a>
 		</div><!-- .site-info -->
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

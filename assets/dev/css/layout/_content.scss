@@ -148,10 +148,12 @@
     }
 
     .post-thumb {
+      display: block;
       position:relative;
         border-radius: 3px;
-        margin: 2em auto;
+        margin: 2em auto -1em;
         width: 400px;
+        height:267px;
         //box-shadow: 0 0 5px #333;
 
       .thumb-img:before{
@@ -168,6 +170,8 @@
         border-radius: 3px;
       }
       img{
+        margin: 0;
+        padding: 0;
         border-radius: 3px;
       }
     }

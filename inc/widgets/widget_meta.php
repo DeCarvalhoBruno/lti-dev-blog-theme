@@ -30,7 +30,7 @@ class Lti_Meta_Widget extends WP_Widget
               //<li><a href="' . get_bloginfo('comments_rss2_url') . '">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
         echo '<div class="meta">
             <ul>
-              <li><a href="' . get_bloginfo('rss2_url') . '">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+              <li><a href="' . get_bloginfo('rss2_url') . '">RSS Entries</a></li>
             </ul>
         </div>';
         echo $args['after_widget'];

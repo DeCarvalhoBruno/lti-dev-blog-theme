@@ -7,8 +7,8 @@
  * @package lti
  */
 
-if (!function_exists('lti_the_post_navigation')) :
-function lti_the_post_navigation($type){
+if (!function_exists('lti_the_generator')) :
+function lti_the_generator($type){
     return null;
 }
 add_filter( 'the_generator', 'lti_the_generator' );
