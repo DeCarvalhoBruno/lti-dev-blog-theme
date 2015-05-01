@@ -18,9 +18,15 @@
     margin: 0 auto;
     padding: 5px;
   }
+
+  #disqus_thread {
+    width: 95%;
+    margin:0 auto;
+    padding: 20px;
+  }
 }
 
-@media (min-width: $screen-lg) {
+@media (min-width: $screen-sm) {
   .comments-area {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -33,8 +39,8 @@
   }
 
   #disqus_thread {
-    width: 70%;
-    margin:0;
+    width: 90%;
+    margin:0 auto;
     padding: 20px;
   }
 

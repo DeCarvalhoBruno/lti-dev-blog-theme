@@ -70,6 +70,22 @@ if (!function_exists('lti_the_post_navigation')) :
     }
 endif;
 
+if (!function_exists('lti_single_no_toc_class')) :
+	function lti_single_no_toc_class(){
+		$content = get_the_content();
+		$s = new DOMDocument();
+		@$s->loadHTML($content);
+		$xpath = new DOMXPath($s);
+		//We run an XPath query asking for all elements with a toc class
+		$tags = $xpath->query('//*[@class="toc"]');
+		if ($tags->length > 0) {
+			return "with-toc";
+		}else{
+			return "no_toc";
+		}
+	}
+endif;
+
 if (!function_exists('lti_posted_on')) :
     /**
      * Prints HTML with meta information for the current post-date/time and author.

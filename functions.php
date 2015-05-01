@@ -5,13 +5,6 @@
  * @package lti
  */
 
-/**
- * Set the content width based on the theme's design and stylesheet.
- */
-if (!isset($content_width)) {
-    $content_width = 640; /* pixels */
-}
-
 if (!function_exists('lti_setup')) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
@@ -42,7 +35,6 @@ if (!function_exists('lti_setup')) :
          */
         add_theme_support('title-tag');
 
-
         /*
          * Enable support for Post Thumbnails on posts and pages.
          *
@@ -62,8 +54,8 @@ if (!function_exists('lti_setup')) :
          */
         add_theme_support('html5', array(
             'search-form',
-            'comment-form',
-            'comment-list',
+            //'comment-form',
+            //'comment-list',
             'gallery',
             'caption',
         ));

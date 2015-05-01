@@ -156,7 +156,14 @@
   }
 }
 
-
+//
+//#post-share.with-toc {
+//  position: relative;
+//  width: 75%;
+//  height: 100%;
+//  padding:0;
+//  margin:40px 0 0;
+//}
 
 #post-share {
   position: relative;
@@ -164,6 +171,11 @@
   height: 100%;
   padding:0;
   margin:40px 0 0;
+}
+
+
+#post-share {
+
 
   .share-button:before {
     width: 1em;
@@ -196,7 +208,7 @@
       display: inline-block;
       vertical-align: middle;
       color: #ffffff;
-      margin: 0 -3px;
+      margin: 0;
       padding: 0;
       a {
         position: relative;

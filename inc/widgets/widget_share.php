@@ -56,7 +56,7 @@ if ( ! class_exists( 'Lti_Share_Widget' ) ) :
 	}
 
 	abstract class Lti_Shares {
-		public static function display( $id = "widget-share" ) {
+		public static function display( $id = "widget-share", $class = "" ) {
 			if ( class_exists( 'Lti\Seo\Helpers\Wordpress_Helper' ) ) {
 				$helper = \Lti\Seo\LTI_SEO::get_instance()->get_helper();
 			} else {
@@ -65,10 +65,10 @@ if ( ! class_exists( 'Lti_Share_Widget' ) ) :
 			$buttons   = array();
 			$buttons[] = new Lti_Button_Facebook( $helper );
 			$buttons[] = new Lti_Button_Google_Plus( $helper );
-			$buttons[] = new Lti_Button_Twitter(  $helper );
-			$buttons[] = new Lti_Button_Pinterest($helper );
+			$buttons[] = new Lti_Button_Twitter( $helper );
+			$buttons[] = new Lti_Button_Pinterest( $helper );
 			$buttons[] = new Lti_Button_LinkedIn( $helper );
-			$buttons[] = new Lti_Button_Email($helper );
+			$buttons[] = new Lti_Button_Email( $helper );
 			$html      = '';
 
 			/**
@@ -77,8 +77,11 @@ if ( ! class_exists( 'Lti_Share_Widget' ) ) :
 			foreach ( $buttons as $button ) {
 				$html .= $button->getHtml();
 			}
+			if ( ! empty( $class ) ) {
+				$class = 'class="' . $class . '"';
+			}
 
-			return '<div id="' . $id . '"><ul class="share-button-group">' . $html . '</ul></div>';
+			return '<div id="' . $id . '" ' . $class . '><ul class="share-button-group">' . $html . '</ul></div>';
 		}
 	}
 

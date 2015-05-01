@@ -14,7 +14,6 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
 	 */
 	function get_sidebar_with_scrollspy()
 	{
-
 		$content = get_the_content();
 
 		//We load the post content into a DOMDocument object so we can get to the elements we want quickly
@@ -51,7 +50,6 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
 						$value = "";
 					}
 					$html .= '<li><a href="#' . $value . '">' . trim($tag->nodeValue) . '</a>';
-
 				}
 			}
 			$html .= str_repeat('</li></ul>', $htmlLevel);

@@ -891,7 +891,7 @@ $('#navbar-toc').affix({
             if (regularCommentsArea.length) {
                 commentsArea = regularCommentsArea.outerHeight(true);
             }
-            return (this.bottom = ($('.site-footer').outerHeight(true) + commentsArea + 200));
+            return (this.bottom = ($('.site-footer').outerHeight(true) + commentsArea + 500));
         }
     }
 });
