@@ -21,11 +21,21 @@ $(document).ready(function () {
                         jsonpCallback: 'cQWE0c4fmjSRkO0',
                         success: function (data) {
                             if (typeof data == "object") {
-                                $('#facebook_share_link').find(".share-counter").text(data.facebook);
-                                $('#gplus_share_link').find(".share-counter").text(data.gplus);
-                                $('#twitter_share_link').find(".share-counter").text(data.twitter);
-                                $('#linkedinshare_link').find(".share-counter").text(data.linkedin);
-                                $('#pinterest_link').find(".share-counter").text(data.pinterest);
+                                if (data.facebook > 0) {
+                                    $('#facebook_share_link').find(".share-counter").text(data.facebook);
+                                }
+                                if (data.gplus > 0) {
+                                    $('#gplus_share_link').find(".share-counter").text(data.gplus);
+                                }
+                                if (data.twitter > 0) {
+                                    $('#twitter_share_link').find(".share-counter").text(data.twitter);
+                                }
+                                if (data.linkedin > 0) {
+                                    $('#linkedin_share_link').find(".share-counter").text(data.linkedin);
+                                }
+                                if (data.pinterest > 0) {
+                                    $('#pinterest_share_link').find(".share-counter").text(data.pinterest);
+                                }
                             }
                         },
                         contentType: "application/json",
