@@ -81,11 +81,12 @@
       margin: 0;
 
       .share-button:before {
+        position: absolute;
         width: 1em;
         margin-right: .3em;
         font-size: 200%;
         top: 30%;
-        left: 18%;
+        //left: 18%;
       }
 
       $share-button-width: 75px;
@@ -117,7 +118,6 @@
           display: block;
           width: $share-button-width;
           height: $share-button-height;
-          top: -31px;
           text-decoration: none;
         }
         a:hover{
@@ -145,6 +145,9 @@
       }
 
       .share-button:before {
+        position: absolute;
+        top: 30%;
+        //left: 15%;
         font-family: share-icons;
         display: inline-block;
         text-decoration: inherit;
@@ -167,9 +170,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         font-size: 170%;
-        position: relative;
-        top: 30%;
-        left: 15%;
+
       }
       //    /* Search widget. */
       //    .widget_search .search-submit {

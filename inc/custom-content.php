@@ -41,6 +41,7 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
 						$htmlLevel = $htmlLevel+($level-$htmlLevel);
 					} elseif ($level < $htmlLevel) {
 						$html .= str_repeat("</li></ul>\n", $htmlLevel - $level) . "</li>";
+						$htmlLevel = $htmlLevel+($level-$htmlLevel);
 					}
 
 					$id = $tag->attributes->getNamedItem('id');
