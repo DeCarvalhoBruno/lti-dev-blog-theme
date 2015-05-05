@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('get_sidebar_with_scrollspy')) :
+if ( ! function_exists( 'get_sidebar_with_scrollspy' ) ) :
 
 	/**
 	 * This functions grabs every h1 to h6 element in a post content and displays it as a table of content
@@ -12,51 +12,85 @@ if (!function_exists('get_sidebar_with_scrollspy')) :
 	 * more than two levels would render very well in such a narrow space.
 	 *
 	 */
-	function get_sidebar_with_scrollspy()
-	{
+	function get_sidebar_with_scrollspy() {
 		$content = get_the_content();
 
 		//We load the post content into a DOMDocument object so we can get to the elements we want quickly
 		$s = new DOMDocument();
-		@$s->loadHTML($content);
-		$xpath = new DOMXPath($s);
+		@$s->loadHTML( $content );
+		$xpath = new DOMXPath( $s );
 		//We run an XPath query asking for all elements with a toc class
-		$tags = $xpath->query('//*[@class="toc"]');
-		$html = '';
-		$htmlLevel = $level= 0;
-		$m = [];
-		if ($tags->length > 0) {
+		$tags      = $xpath->query( '//*[@class="toc"]' );
+		$html      = '';
+		$htmlLevel = $level = 0;
+		$m         = [ ];
+		if ( $tags->length > 0 ) {
 			$html .= '<div id="affix-wrapper"><nav id="navbar-toc" role="navigation">';
-			foreach ($tags as $tag) {
+			foreach ( $tags as $tag ) {
 				//we try to find h1 to h6 but we just capture the number
-				preg_match("#(?<=h)[1-6]#", $tag->tagName, $m);
-				if (isset($m[0])) {
-					$level = $m[0]-1;
-					if ($level == $htmlLevel) {
-						if ($htmlLevel > 0) {
+				preg_match( "#(?<=h)[1-6]#", $tag->tagName, $m );
+				if ( isset( $m[0] ) ) {
+					$level = $m[0] - 1;
+					if ( $level == $htmlLevel ) {
+						if ( $htmlLevel > 0 ) {
 							$html .= "</li>\n";
 						}
-					} elseif ($level > $htmlLevel) {
+					} elseif ( $level > $htmlLevel ) {
 						$html .= '<ul class="nav">';
-						$htmlLevel = $htmlLevel+($level-$htmlLevel);
-					} elseif ($level < $htmlLevel) {
-						$html .= str_repeat("</li></ul>\n", $htmlLevel - $level) . "</li>";
-						$htmlLevel = $htmlLevel+($level-$htmlLevel);
+						$htmlLevel = $htmlLevel + ( $level - $htmlLevel );
+					} elseif ( $level < $htmlLevel ) {
+						$html .= str_repeat( "</li></ul>\n", $htmlLevel - $level ) . "</li>";
+						$htmlLevel = $htmlLevel + ( $level - $htmlLevel );
 					}
 
-					$id = $tag->attributes->getNamedItem('id');
-					if (is_object($id)) {
+					$id = $tag->attributes->getNamedItem( 'id' );
+					if ( is_object( $id ) ) {
 						$value = $id->value;
 					} else {
 						$value = "";
 					}
-					$html .= '<li><a href="#' . $value . '">' . trim($tag->nodeValue) . '</a>';
+					$html .= '<li><a href="#' . $value . '">' . trim( $tag->nodeValue ) . '</a>';
 				}
 			}
-			$html .= str_repeat('</li></ul>', $htmlLevel);
+			$html .= str_repeat( '</li></ul>', $htmlLevel );
 			$html .= "<ul class=\"nav top-marker\"><li><a href=\"#page-top\">Top</a></li></ul></nav></div>\n";
 		}
 		echo $html;
 
 	}
+endif;
+
+if ( ! function_exists( 'lti_get_author_social_accounts' ) ) :
+	/**
+	 * Grabs social account urls configured in each users' profile
+	 * LTI SEO has to be activated for this to work.
+	 *
+	 */
+	function lti_get_author_social_accounts() {
+		if ( class_exists( 'Lti\Seo\Helpers\Wordpress_Helper' ) ) {
+			/**
+			 * @var \Lti\Seo\Helpers\Wordpress_Helper $helper
+			 */
+			$helper          = \Lti\Seo\LTI_SEO::get_instance()->get_helper();
+			$social_accounts = $helper->get_author_social_info( 'all_with_labels' );
+
+			if ( is_array( $social_accounts ) ) {
+				if ( isset( $social_accounts['email'] ) ) {
+					$email = $social_accounts['email'];
+					unset( $social_accounts['email'] );
+				}
+				foreach ( $social_accounts as $account => $link ) {
+					echo sprintf( '<li class="share-button share-%s"><a href="%s" rel="nofollow" target=_blank"></a></li>',
+						$account, $link );
+				}
+				if ( ! empty( $email ) ) {
+					echo sprintf( '<li class="share-button share-email"><a href="%s" rel="nofollow" target=_blank"></a></li>',
+						sprintf( $email, esc_attr( 'Lti@DEV - Contact' ), '' ) );
+				}
+			}
+		} else {
+			return;
+		}
+	}
+
 endif;

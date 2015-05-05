@@ -95,6 +95,30 @@
     font-size: .8em;
   }
 
+  .copyleft {
+    text-align: center;
+    #img-copyleft {
+      display: inline;
+      vertical-align: middle;
+      height: 15px;
+      width: 15px;
+      opacity: .8;
+    }
+    span > a{
+      $spanColor: #FDFC9C;
+      font-family: "Lucida Grande",Verdana,Geneva,sans-serif;
+      text-decoration: none;
+      display: inline;
+      vertical-align: middle;
+      font-size: 0.9em;
+      letter-spacing: 0.05em;
+      //text-shadow: -1px -1px 0 $spanColor, 1px -1px 0 $spanColor, -1px 1px 0 $spanColor, 1px 1px 0 $spanColor;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
 }
 
 @media (min-width: $screen-xs) {

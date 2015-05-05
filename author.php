@@ -26,26 +26,12 @@ get_header(); ?>
 					<?php
 					$avatar_img = get_avatar( get_query_var( 'author' ), 200, '', get_the_author() );
 					echo $avatar_img;
-
 					?>
 				</div>
 				<div class="author-social">
-					<div class="footer-shares">
-						<ul class="share-button-group">
-							<li class="share-button share-facebook">
-								</li>
-							<li class="share-button share-gplus">
-								</li>
-							<li class="share-button share-twitter">
-								</li>
-							<li class="share-button share-pinterest">
-								</li>
-							<li class="share-button share-linkedin">
-								</li>
-							<li class="share-button share-email">
-								</li>
-						</ul>
-					</div>
+					<ul class="share-button-group">
+						<?php  lti_get_author_social_accounts() ?>
+					</ul>
 				</div>
 
 				</div>

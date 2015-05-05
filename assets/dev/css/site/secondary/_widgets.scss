@@ -80,15 +80,6 @@
       padding: 0;
       margin: 0;
 
-      .share-button:before {
-        position: absolute;
-        width: 1em;
-        margin-right: .3em;
-        font-size: 200%;
-        top: 30%;
-        //left: 18%;
-      }
-
       $share-button-width: 75px;
       $share-button-group-width: $share-button-width*3;
       $share-button-height: 75px;
@@ -144,34 +135,34 @@
         width: 100%;
       }
 
-      .share-button:before {
-        position: absolute;
-        top: 30%;
-        //left: 15%;
-        font-family: share-icons;
-        display: inline-block;
-        text-decoration: inherit;
-        width: 1em;
-        //margin-right: .3em;
-        text-align: center;
-
-        /* For safety - reset parent styles, that can break glyph codes*/
-        font-variant: normal;
-        text-transform: none;
-
-        /* fix buttons height, for twitter bootstrap */
-        line-height: 1em;
-
-        /* Animation center compensation - margins should be symmetric */
-        /* remove if not needed */
-        margin-left: -.5em;
-
-        /* Font smoothing. That was taken from TWBS */
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-size: 170%;
-
-      }
+//      .share-button:before {
+//        position: absolute;
+//        top: 30%;
+//        //left: 15%;
+//        font-family: share-icons;
+//        display: inline-block;
+//        text-decoration: inherit;
+//        width: 1em;
+//        //margin-right: .3em;
+//        text-align: center;
+//
+//        /* For safety - reset parent styles, that can break glyph codes*/
+//        font-variant: normal;
+//        text-transform: none;
+//
+//        /* fix buttons height, for twitter bootstrap */
+//        line-height: 1em;
+//
+//        /* Animation center compensation - margins should be symmetric */
+//        /* remove if not needed */
+//        margin-left: -.5em;
+//
+//        /* Font smoothing. That was taken from TWBS */
+//        -webkit-font-smoothing: antialiased;
+//        -moz-osx-font-smoothing: grayscale;
+//        font-size: 170%;
+//
+//      }
       //    /* Search widget. */
       //    .widget_search .search-submit {
       //      display: none;

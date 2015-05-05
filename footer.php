@@ -14,8 +14,12 @@
 	<div class="footer-elem-wrapper">
 		<?php get_sidebar( 'footer' ); ?>
 		<div class="site-info">
-			<a target="_blank" href="<?php echo esc_url( 'http://info.linguisticteam.org' ); ?>"
-			   rel="nofollow"><?php _e( 'Linguistic Team International', 'lti' ); ?></a>
+			<div class="copyleft">
+				<img id="img-copyleft" alt="This website is based on a copyleft template" src="<?php echo get_template_directory_uri() ?>/assets/images/copyleft.png">
+				<span><a target="_blank" href="<?php echo esc_url( 'http://info.linguisticteam.org' ); ?>"
+				         rel="nofollow"><?php _e( 'Linguistic Team International', 'lti' ); ?></a></span>
+			</div>
+
 		</div>
 		<!-- .site-info -->
 	</div>

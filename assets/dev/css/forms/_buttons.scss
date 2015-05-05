@@ -97,3 +97,27 @@
 .share-email:before {
   content: '\e804';
 }
+
+.share-youtube {
+  background-color: #D00121;
+}
+
+.share-youtube:hover:before {
+  color: #810114;
+}
+
+.share-youtube:before {
+  content: '\e807';
+}
+
+.share-instagram {
+  background-color: #4E7CA1;
+}
+
+.share-instagram:hover:before {
+  color: #35556e;
+}
+
+.share-instagram:before {
+  content: '\e806';
+}
