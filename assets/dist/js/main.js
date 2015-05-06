@@ -120,6 +120,43 @@
                     }
                 );
             };
+            this.githubCounter = function () {
+                var timeConverter = function (timestamp) {
+                    var a = new Date(timestamp * 1000);
+                    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    var year = a.getFullYear();
+                    var month = months[a.getMonth()];
+                    return month + ' ' + year;
+                };
+                $.ajax(
+                    {
+                        type: 'GET',
+                        url: window.lti.vars.api_url + 'github' + '?token=' + window.lti.vars.api_token,
+                        dataType: 'jsonp',
+                        jsonpCallback: 'dA6dFgp2n5Dxm2w',
+                        success: function (data) {
+                            if (typeof data == "object") {
+                                var tableCells = $('.github-data');
+                                for (var key in data) {
+                                    var nbCommits = data[key].nbCommits;
+                                    if (nbCommits > 0) {
+                                        $('.' + key + '-nc').html(nbCommits);
+                                    }
+                                    var lastCommit = data[key].lastCommit;
+                                    if (lastCommit > 0) {
+                                        lastCommit = timeConverter(lastCommit);
+                                    } else {
+                                        lastCommit = 'N/A';
+                                    }
+                                    $('.' + key + '-lc').html(lastCommit);
+                                }
+                            }
+                        },
+                        contentType: "application/json",
+                        cache: true
+                    }
+                );
+            };
         };
         var page = new window.lti.PageInfo();
         $('.share-button.new-window').find('a').on('click', function (e) {
@@ -130,5 +167,9 @@
             }
         });
         page.shareCounter();
+        if ($(window).has('#lti-dev-projects')) {
+            page.githubCounter();
+        }
+
     }
 });

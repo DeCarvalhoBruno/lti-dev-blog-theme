@@ -121,3 +121,27 @@
 .share-instagram:before {
   content: '\e806';
 }
+
+.share-github {
+  background-color: #000000;
+}
+
+.share-github:hover:before {
+  color: #bfecff;
+}
+
+.share-github:before {
+  content: '\e809';
+}
+
+.share-codeacademy {
+  background-color: #556E7E;
+}
+
+.share-codeacademy:hover:before {
+  color: #3b4c57;
+}
+
+.share-codeacademy:before {
+  content: '\e808';
+}

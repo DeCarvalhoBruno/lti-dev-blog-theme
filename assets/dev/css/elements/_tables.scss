@@ -1,4 +1,71 @@
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
+  border: 1px solid #e7e7e7;
+}
+
+.widefat {
+  border-spacing: 0;
+  width: 100%;
+  clear: both;
+  margin: 0;
+}
+
+.widefat * {
+  word-wrap: break-word;
+}
+
+.widefat a {
+  text-decoration: none;
+}
+
+.widefat td,
+.widefat th {
+  padding: 8px 10px;
+}
+
+.widefat thead th {
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.widefat tfoot th {
+  border-top: 1px solid #e1e1e1;
+  border-bottom: none;
+}
+
+.widefat .no-items td {
+  border-bottom-width: 0;
+}
+
+.widefat td {
+  vertical-align: top;
+}
+
+.widefat td,
+ {
+  font-size: 13px;
+  line-height: 1.5em;
+  vertical-align: middle;
+}
+
+.widefat th {
+  text-align: left;
+  line-height: 1.3em;
+  font-size: 14px;
+}
+
+.striped > tbody > :nth-child(odd){
+  background-color: #f9f9f9;
+}
+
+@media (max-width: $screen-sm) {
+  .widefat .sm-hide, .widefat .github-data {
+    display: none;
+  }
+}
+
+@media (max-width: $screen-md) {
+  .widefat .md-hide {
+    display: none;
+  }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages.
+ * The template for displaying project pages.
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -9,11 +9,10 @@
  *
  * @package lti
  */
-
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main with-sidebar" role="main">
+		<main id="main" class="site-main" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -24,7 +23,6 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <div style="clear: both;height:50px"></div>
 <?php
 // If comments are open or we have at least one comment, load up the comment template

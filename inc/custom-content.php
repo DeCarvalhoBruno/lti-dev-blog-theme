@@ -73,6 +73,14 @@ if ( ! function_exists( 'lti_get_author_social_accounts' ) ) :
 			 */
 			$helper          = \Lti\Seo\LTI_SEO::get_instance()->get_helper();
 			$social_accounts = $helper->get_author_social_info( 'all_with_labels' );
+			$prettyNames     = array(
+				'facebook'  => 'Facebook',
+				'twitter'   => 'Twitter',
+				'instagram' => 'Instagram',
+				'youtube'   => 'YouTube',
+				'linkedin'  => 'LinkedIn',
+				'gplus'     => 'Google Plus'
+			);
 
 			if ( is_array( $social_accounts ) ) {
 				if ( isset( $social_accounts['email'] ) ) {
@@ -80,17 +88,72 @@ if ( ! function_exists( 'lti_get_author_social_accounts' ) ) :
 					unset( $social_accounts['email'] );
 				}
 				foreach ( $social_accounts as $account => $link ) {
-					echo sprintf( '<li class="share-button share-%s"><a href="%s" rel="nofollow" target=_blank"></a></li>',
-						$account, $link );
+					echo sprintf( '<li class="share-button share-%s"><a href="%s" title="%s" rel="nofollow" target=_blank"></a></li>',
+						$account, $link, $prettyNames[ $account ] . " profile" );
 				}
 				if ( ! empty( $email ) ) {
-					echo sprintf( '<li class="share-button share-email"><a href="%s" rel="nofollow" target=_blank"></a></li>',
+					echo sprintf( '<li class="share-button share-email"><a href="%s" title="E-mail me" rel="nofollow" target=_blank"></a></li>',
 						sprintf( $email, esc_attr( 'Lti@DEV - Contact' ), '' ) );
 				}
 			}
 		} else {
 			return;
 		}
+	}
+
+endif;
+if ( ! function_exists( 'lti_get_author_dev_accounts' ) ) :
+	/**
+	 * Grabs dev account urls configured in each users' profile
+	 * @see functions.php
+	 *
+	 */
+	function lti_get_author_dev_accounts() {
+		$author       = get_query_var( 'author' );
+		$dev_accounts = array(
+			'codeacademy' => get_user_meta( $author, 'lti_codeacademy_profile',true ),
+			'github'      => get_user_meta( $author, 'lti_github_profile',true )
+		);
+		$prettyNames = array(
+			'codeacademy' => 'Code Academy',
+			'github'      => 'GitHub'
+		);
+		if ( ! empty( $dev_accounts ) ) {
+			foreach ( $dev_accounts as $account => $link ) {
+				if(!empty( $link)){
+				echo sprintf( '<li class="share-button share-%s"><a href="%s" title="%s" rel="nofollow" target=_blank"></a></li>',
+					$account, $link, $prettyNames[ $account ] . " profile" );
+				}
+			}
+		}
+
+		//echo $f[0];
+
+//			$helper          = \Lti\Seo\LTI_SEO::get_instance()->get_helper();
+//			$social_accounts = $helper->get_author_social_info( 'all_with_labels' );
+//			$prettyNames = array(
+//				'facebook'=>'Facebook',
+//				'twitter'=>'Twitter',
+//				'instagram'=>'Instagram',
+//				'youtube'=>'YouTube',
+//				'linkedin'=>'LinkedIn',
+//				'gplus'=>'Google Plus'
+//			);
+//
+//			if ( is_array( $social_accounts ) ) {
+//				if ( isset( $social_accounts['email'] ) ) {
+//					$email = $social_accounts['email'];
+//					unset( $social_accounts['email'] );
+//				}
+//				foreach ( $social_accounts as $account => $link ) {
+//					echo sprintf( '<li class="share-button share-%s"><a href="%s" title="%s" rel="nofollow" target=_blank"></a></li>',
+//						$account, $link,$prettyNames[$account]." profile" );
+//				}
+//				if ( ! empty( $email ) ) {
+//					echo sprintf( '<li class="share-button share-email"><a href="%s" title="E-mail me" rel="nofollow" target=_blank"></a></li>',
+//						sprintf( $email, esc_attr( 'Lti@DEV - Contact' ), '' ) );
+//				}
+//			}
 	}
 
 endif;

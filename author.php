@@ -22,6 +22,11 @@ get_header(); ?>
 				?>
 			</header><!-- .page-header -->
 				<div class="author-info">
+				<div class="author-dev">
+					<ul class="share-button-group">
+						<?php  lti_get_author_dev_accounts() ?>
+					</ul>
+				</div>
 				<div class="author-img">
 					<?php
 					$avatar_img = get_avatar( get_query_var( 'author' ), 200, '', get_the_author() );

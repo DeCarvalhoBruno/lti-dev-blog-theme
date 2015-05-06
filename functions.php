@@ -189,7 +189,6 @@ function lti_scripts()
         wp_enqueue_script('lti-scripts', get_template_directory_uri() . '/assets/dist/js/single.min.js', array(), '1.0', true);
     } else {
         wp_enqueue_script('lti-scripts', get_template_directory_uri() . '/assets/dist/js/main.min.js', array(), '1.0', true);
-        //wp_enqueue_script('lti-scripts', get_template_directory_uri() . '/js/dist/extra.js', array(), '1.0', true);
     }
 
 //    if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -218,6 +217,52 @@ function lti_body_extra_attributes()
 add_action('after_setup_theme', 'lti_body_extra_attributes');
 endif; // lti_body_extra_attributes
 
+
+if (!function_exists('lti_show_user_profile')) :
+	function lti_show_user_profile($user){
+		$fields = array();
+		$field_info = array(
+			array( "lti_github_profile", 'Github profile', '' ),
+			array( "lti_codeacademy_profile", 'Code Academy profile', '' ),
+
+		);
+		foreach ( $field_info as $field ) {
+			$fields[] = sprintf( '<tr>
+				<th><label for="%1$s">%2$s</label></th>
+				<td>
+					<input type="text" name="%1$s" id="%1$s" class="regular-text"
+					       value="' . esc_attr( get_the_author_meta( $field[0], $user->ID ) ) . '" /><br />
+					<span class="description">%3$s</span>
+				</td>
+			</tr>', $field[0], ltint( $field[1] ), ltint( $field[2] ) );
+		}
+
+		echo sprintf( '
+		<h3>%s</h3>
+		<table class="form-table">
+			%s
+		</table>', 'Dev related accounts', implode( PHP_EOL, $fields ) );
+	}
+
+	function lti_personal_options_update($userID){
+		$field_info = array(
+			array( "lti_github_profile" ),
+			array( "lti_codeacademy_profile" ),
+
+		);
+		if ( current_user_can( 'edit_user', $userID ) ) {
+			foreach ( $field_info as $field ) {
+				update_user_meta( $userID, $field[0], $_POST[ $field[0] ] );
+			}
+		}
+
+		return true;
+	}
+	add_action( 'show_user_profile', 'lti_show_user_profile' );
+	add_action( 'edit_user_profile', 'lti_show_user_profile' );
+	add_action( 'personal_options_update', 'lti_personal_options_update', 10, 1 );
+	add_action( 'edit_user_profile_update', 'lti_personal_options_update', 10, 1 );
+	endif;
 /**
  * Implement the Custom Header feature.
  */
