@@ -90,6 +90,7 @@ if ( ! class_exists( 'Lti_Share_Widget' ) ) :
 		protected $html;
 		protected $buttonClass;
 		protected $linkTitle;
+		protected $newWindow=true;
 		/**
 		 * @var Lti_Button|\Lti\Seo\Helpers\Wordpress_Helper
 		 */
@@ -106,13 +107,17 @@ if ( ! class_exists( 'Lti_Share_Widget' ) ) :
 				$this->linkTitle = "Share on " . ucfirst( $this->buttonClass );
 			}
 
-			$this->html = sprintf( '<li class="share-button share-%1$s new-window">
+			$newWindow = '';
+
+			if ( $this->newWindow ) {
+				$newWindow = 'new-window';
+			}
+
+			$this->html = sprintf( '<li class="share-button share-%1$s %4$s">
 				<a target="_blank" title="%3$s" rel="nofollow" id="%1$s_share_link" href="%2$s">
 					<span class="sr-only">Opens in new window</span>
 				<span class="counter"><span class="share-counter"></span></span></a></li>', $this->buttonClass,
-				esc_attr( $this->build_url() ), $this->linkTitle );
-
-
+				esc_attr( $this->build_url() ), $this->linkTitle, $newWindow );
 		}
 
 		public function getHtml() {
@@ -206,6 +211,7 @@ if ( ! class_exists( 'Lti_Share_Widget' ) ) :
 		protected $buttonClass = 'email';
 		protected $linkTitle = "Share by email/Email the author";
 		protected $url = 'mailto:%3$s?subject=%2$s&body=%1$s';
+		protected $newWindow = false;
 
 		protected function build_url() {
 			$page_url = $this->helper->get_canonical_url();

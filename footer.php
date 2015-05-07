@@ -15,7 +15,8 @@
 		<?php get_sidebar( 'footer' ); ?>
 		<div class="site-info">
 			<div class="copyleft">
-				<img id="img-copyleft" alt="This website is based on a copyleft template" src="<?php echo get_template_directory_uri() ?>/assets/images/copyleft.png">
+				<img id="img-copyleft" alt="This website is based on a copyleft template"
+				     src="<?php echo get_template_directory_uri() ?>/assets/images/copyleft.png">
 				<span><a target="_blank" href="<?php echo esc_url( 'http://info.linguisticteam.org' ); ?>"
 				         rel="nofollow"><?php _e( 'Linguistic Team International', 'lti' ); ?></a></span>
 			</div>
@@ -26,7 +27,14 @@
 </footer><!-- #colophon -->
 </div><!-- #page -->
 
-<?php wp_footer(); ?>
+<?php
+if ( class_exists( 'Lti\Seo\Helpers\Wordpress_Helper' ) ) {
+	$helper = \Lti\Seo\LTI_SEO::get_instance()->get_helper();
+	$url    = $helper->get_canonical_url();
+} else {
+	$url = get_permalink();
+}
+?>
 <script>
 	<?php if(WP_DEBUG_DISPLAY==true){?>
 	document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
@@ -35,7 +43,7 @@
 		'vars': {
 			'api_url': "<?php echo LTI_BACKEND_API_URL;?>",
 			'api_token': "<?php echo LTI_BACKEND_API_TOKEN;?>",
-			'tested_url': "<?php echo get_permalink();?>"
+			'tested_url': "<?php echo $url ?>"
 		}
 	}
 </script>

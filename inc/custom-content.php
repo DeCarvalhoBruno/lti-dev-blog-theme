@@ -126,34 +126,6 @@ if ( ! function_exists( 'lti_get_author_dev_accounts' ) ) :
 				}
 			}
 		}
-
-		//echo $f[0];
-
-//			$helper          = \Lti\Seo\LTI_SEO::get_instance()->get_helper();
-//			$social_accounts = $helper->get_author_social_info( 'all_with_labels' );
-//			$prettyNames = array(
-//				'facebook'=>'Facebook',
-//				'twitter'=>'Twitter',
-//				'instagram'=>'Instagram',
-//				'youtube'=>'YouTube',
-//				'linkedin'=>'LinkedIn',
-//				'gplus'=>'Google Plus'
-//			);
-//
-//			if ( is_array( $social_accounts ) ) {
-//				if ( isset( $social_accounts['email'] ) ) {
-//					$email = $social_accounts['email'];
-//					unset( $social_accounts['email'] );
-//				}
-//				foreach ( $social_accounts as $account => $link ) {
-//					echo sprintf( '<li class="share-button share-%s"><a href="%s" title="%s" rel="nofollow" target=_blank"></a></li>',
-//						$account, $link,$prettyNames[$account]." profile" );
-//				}
-//				if ( ! empty( $email ) ) {
-//					echo sprintf( '<li class="share-button share-email"><a href="%s" title="E-mail me" rel="nofollow" target=_blank"></a></li>',
-//						sprintf( $email, esc_attr( 'Lti@DEV - Contact' ), '' ) );
-//				}
-//			}
 	}
 
 endif;
