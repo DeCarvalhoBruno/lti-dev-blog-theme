@@ -167,7 +167,7 @@
             }
         });
         page.shareCounter();
-        if ($(window).has('#lti-dev-projects')) {
+        if ($('#lti-dev-projects').length>0) {
             page.githubCounter();
         }
 
