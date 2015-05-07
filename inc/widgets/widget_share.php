@@ -106,7 +106,7 @@ if ( ! class_exists( 'Lti_Share_Widget' ) ) :
 				$this->linkTitle = "Share on " . ucfirst( $this->buttonClass );
 			}
 
-			$this->html = sprintf( '<li class="share-button share-%1$s">
+			$this->html = sprintf( '<li class="share-button share-%1$s new-window">
 				<a target="_blank" title="%3$s" rel="nofollow" id="%1$s_share_link" href="%2$s">
 					<span class="sr-only">Opens in new window</span>
 				<span class="counter"><span class="share-counter"></span></span></a></li>', $this->buttonClass,
@@ -181,7 +181,7 @@ if ( ! class_exists( 'Lti_Share_Widget' ) ) :
 
 	class Lti_Button_Twitter extends Lti_Button {
 		protected $buttonClass = 'twitter';
-		protected $url = 'http://twitter.com/share?url=%s&text=%s';
+		protected $url = 'http://twitter.com/intent/tweet?url=%s&text=%s';
 	}
 
 	class Lti_Button_Pinterest extends Lti_Button {
