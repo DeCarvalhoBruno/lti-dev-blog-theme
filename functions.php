@@ -195,7 +195,6 @@ function lti_scripts()
 //        wp_enqueue_script('comment-reply');
 //    }
 }
-
 add_action('wp_enqueue_scripts', 'lti_scripts');
 endif; // lti_scripts
 

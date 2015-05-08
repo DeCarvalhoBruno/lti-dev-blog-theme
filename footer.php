@@ -34,6 +34,7 @@ if ( class_exists( 'Lti\Seo\Helpers\Wordpress_Helper' ) ) {
 } else {
 	$url = get_permalink();
 }
+wp_footer();
 ?>
 <script>
 	<?php if(WP_DEBUG_DISPLAY==true){?>

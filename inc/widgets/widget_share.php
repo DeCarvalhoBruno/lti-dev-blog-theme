@@ -143,6 +143,10 @@ if ( ! class_exists( 'Lti_Share_Widget' ) ) :
 			return get_permalink();
 		}
 
+		protected function page_type(){
+			return "Frontpage";
+		}
+
 		protected function get_social_image_url() {
 
 			if ( has_post_thumbnail( 'single-post-thumbnail' ) ) {

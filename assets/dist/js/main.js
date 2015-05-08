@@ -89,6 +89,9 @@
                     'top=' + this.posTop + ',left=' + this.posLeft + ',toolbar=0,status=0,width=' + this.winLeft + ',height=' + this.winTop
                 );
             };
+            /**
+             * Asks the backend for share counter info that it relays to sharing buttons on the page
+             */
             this.shareCounter = function () {
                 $.ajax(
                     {
@@ -120,6 +123,9 @@
                     }
                 );
             };
+            /**
+             * In Projects page, displays commit total and last commit week
+             */
             this.githubCounter = function () {
                 var timeConverter = function (timestamp) {
                     var a = new Date(timestamp * 1000);
@@ -162,6 +168,7 @@
         $('.share-button.new-window').find('a').on('click', function (e) {
             e.preventDefault();
             var link = this.href;
+            //Open sharing links in popups
             if (typeof link != 'undefined' && link) {
                 page.popup(link);
             }
@@ -170,7 +177,5 @@
         if ($('#lti-dev-projects').length>0) {
             page.githubCounter();
         }
-
     }
 });
-
