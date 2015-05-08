@@ -42,7 +42,7 @@
             <a class="social-header h-fb" target="_blank" href="https://www.facebook.com/groups/LinguisticTeamInternational/" title="facebook group" rel="nofollow"></a>
             <a class="social-header h-tw" target="_blank" href="https://twitter.com/LinguisticTeam"
                title="twitter page" rel="nofollow"></a>
-            <a class="social-header h-gp" target="_blank" href="#" title="google plus page" rel="nofollow"></a>
+            <a class="social-header h-gp" target="_blank" href="https://plus.google.com/+LinguisticTeamInternationalOfficial" title="google plus page" rel="nofollow"></a>
         </div>
 
         <nav id="site-navigation" class="main-navigation" role="navigation">
