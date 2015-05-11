@@ -200,12 +200,15 @@
     }
   }
 
+  .page .site-main.with-toc {
+      margin: 0 $size__post-sidebar 0 0;
+  }
+
   .single-post {
     .site-main.no_toc {
       width: 85%;
       margin: 0 auto;
     }
   }
-
 
 }

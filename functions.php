@@ -184,7 +184,6 @@ function lti_scripts()
     wp_enqueue_style('lti-open-sans', lti_font_url(), array(), null);
 
     wp_enqueue_style('lti-style', get_stylesheet_uri());
-
     if (is_singular()) {
         wp_enqueue_script('lti-scripts', get_template_directory_uri() . '/assets/dist/js/single.min.js', array(), '1.0', true);
     } else {
@@ -200,17 +199,13 @@ endif; // lti_scripts
 
 if (!function_exists('lti_body_extra_attributes')) :
 /**
- * Adding the scrollspy attributes to a body tag if we're in a single post,
- * where we want to display a table of contents if we want to.
+ * Adding the scrollspy attributes to the body tag
  *
  * @return string
  */
 function lti_body_extra_attributes()
 {
-    if (is_singular('post')) {
-        return 'data-spy="scroll" data-target="#navbar-toc"';
-    }
-    return '';
+    return 'data-spy="scroll" data-target="#navbar-toc"';
 }
 
 add_action('after_setup_theme', 'lti_body_extra_attributes');
