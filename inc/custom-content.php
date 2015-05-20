@@ -72,7 +72,7 @@ if ( ! function_exists( 'lti_get_author_social_accounts' ) ) :
 			 * @var \Lti\Seo\Helpers\Wordpress_Helper $helper
 			 */
 			$helper          = \Lti\Seo\LTI_SEO::get_instance()->get_helper();
-			$social_accounts = $helper->get_author_social_info( 'all_with_labels' );
+			$social_accounts = $helper->get_author_social_info_with_labels( 'all_with_labels' );
 			$prettyNames     = array(
 				'facebook'  => 'Facebook',
 				'twitter'   => 'Twitter',
@@ -88,11 +88,11 @@ if ( ! function_exists( 'lti_get_author_social_accounts' ) ) :
 					unset( $social_accounts['email'] );
 				}
 				foreach ( $social_accounts as $account => $link ) {
-					echo sprintf( '<li class="share-button share-%s"><a href="%s" title="%s" rel="nofollow" target=_blank"></a></li>',
+					echo sprintf( '<li class="share-button share-%s"><a href="%s" title="%s" rel="nofollow" target="_blank"></a></li>',
 						$account, $link, $prettyNames[ $account ] . " profile" );
 				}
 				if ( ! empty( $email ) ) {
-					echo sprintf( '<li class="share-button share-email"><a href="%s" title="E-mail me" rel="nofollow" target=_blank"></a></li>',
+					echo sprintf( '<li class="share-button share-email"><a href="%s" title="E-mail me" rel="nofollow" target="_blank"></a></li>',
 						sprintf( $email, esc_attr( 'Lti@DEV - Contact' ), '' ) );
 				}
 			}
@@ -121,7 +121,7 @@ if ( ! function_exists( 'lti_get_author_dev_accounts' ) ) :
 		if ( ! empty( $dev_accounts ) ) {
 			foreach ( $dev_accounts as $account => $link ) {
 				if(!empty( $link)){
-				echo sprintf( '<li class="share-button share-%s"><a href="%s" title="%s" rel="nofollow" target=_blank"></a></li>',
+				echo sprintf( '<li class="share-button share-%s"><a href="%s" title="%s" rel="nofollow" target="_blank"></a></li>',
 					$account, $link, $prettyNames[ $account ] . " profile" );
 				}
 			}
