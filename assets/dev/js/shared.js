@@ -14,38 +14,42 @@ $(document).ready(function () {
             };
             /**
              * Asks the backend for share counter info that it relays to sharing buttons on the page
+             *
+             * Removing ajax call for now, it's very slow.
              */
-            this.shareCounter = function () {
-                $.ajax(
-                    {
-                        type: 'GET',
-                        url: window.lti.vars.api_url + 'shares?url=' + encodeURI(window.lti.vars.tested_url) + '&token=' + window.lti.vars.api_token,
-                        dataType: 'jsonp',
-                        jsonpCallback: 'cQWE0c4fmjSRkO0',
-                        success: function (data) {
-                            if (typeof data == "object") {
-                                if (data.facebook > 0) {
-                                    $('#facebook_share_link').find(".share-counter").text(data.facebook);
-                                }
-                                if (data.gplus > 0) {
-                                    $('#gplus_share_link').find(".share-counter").text(data.gplus);
-                                }
-                                if (data.twitter > 0) {
-                                    $('#twitter_share_link').find(".share-counter").text(data.twitter);
-                                }
-                                if (data.linkedin > 0) {
-                                    $('#linkedin_share_link').find(".share-counter").text(data.linkedin);
-                                }
-                                if (data.pinterest > 0) {
-                                    $('#pinterest_share_link').find(".share-counter").text(data.pinterest);
-                                }
-                            }
-                        },
-                        contentType: "application/json",
-                        cache: true
-                    }
-                );
-            };
+            //this.shareCounter = function () {
+            //    $.ajax(
+            //        {
+            //            type: 'GET',
+            //            url: window.lti.vars.api_url + 'shares?url=' + encodeURI(window.lti.vars.tested_url) + '&token=' + window.lti.vars.api_token,
+            //            dataType: 'jsonp',
+            //            jsonpCallback: 'cQWE0c4fmjSRkO0',
+            //            success: function (data) {
+            //                if (typeof data == "object") {
+            //                    if (data.facebook > 0) {
+            //                        $('#facebook_share_link').find(".share-counter").text(data.facebook);
+            //                    }
+            //                    if (data.gplus > 0) {
+            //                        $('#gplus_share_link').find(".share-counter").text(data.gplus);
+            //                    }
+            //                    if (data.twitter > 0) {
+            //                        $('#twitter_share_link').find(".share-counter").text(data.twitter);
+            //                    }
+            //                    if (data.linkedin > 0) {
+            //                        $('#linkedin_share_link').find(".share-counter").text(data.linkedin);
+            //                    }
+            //                    if (data.pinterest > 0) {
+            //                        $('#pinterest_share_link').find(".share-counter").text(data.pinterest);
+            //                    }
+            //                }
+            //            },
+            //            contentType: "application/json",
+            //            cache: true
+            //        }
+            //    );
+            //};
+
+
             /**
              * In Projects page, displays commit total and last commit week
              */
